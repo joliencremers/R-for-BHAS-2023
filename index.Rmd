@@ -8,14 +8,14 @@ output:
 
 # Intro {.sidebar}
 
-This dashboard covers the materials for the course introducing R. Course held in Sarajevo, May 8 - May 11, 2023.
+This dashboard covers the materials for the course introducing R. Course held in Sarajevo, May 23 - May 26, 2023.
 
 ---
 
 Instructors: 
 
- - Philip Porter (php@dst.dk)
- - Morten Hallas (mhl@dst.dk)
+ - Fenja Søndergaard Møller (fsm@dst.dk)
+ - Jolien Cremers (joc@dst.dk)
 
 
 ---
@@ -40,22 +40,22 @@ The course starts at a very basic level and builds up gradually. No previous exp
 
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
-| *Monday*    |                                                 |
-| 10.00-12.00 | Introduction to R and RStudio                   |
+| *Tuesday*   |                                                 |
+| 09.00-12.00 | Introduction to R and RStudio                   |
 |             | *Break*                                         |
 | 13.00-15.30 | Datatypes in R and basic syntax                 |
-| *Tuesday*   |                                                 |
+| *Wednesday* |                                                 |
 | 09.00-12.00 | Reading external data into R                    |
 |             | *Break*                                         |     
 | 13.00-15.30 | Data manipulation and tidyverse                 |
-| *Wednesday* |                                                 |
-| 08.30-11.30 | More data manipulation                          |
+| *Thursday*  |                                                 |
+| 09.00-12.00 | More data manipulation                          |
 |             | *Break*                                         |             
 | 13.00-15.30 | Grouping and summarizing data                   |
-| *Thursday*  |                                                 |
-| 08.30-10.30 | Examples with data from CBBH                    |
-|             | *Break*                                         |
-| 13.00-15.30 | Introduction to visualization and reports       |
+| *Friday*    |                                                 |
+| 09.00-10.00 | Introduction to visualization and reports       |
+| 10.00-12.00 | Working with BHAS data                          |
+
 
 
 # How to prepare
@@ -69,7 +69,7 @@ The below steps guide you through installing both `R` as well as the necessary a
 
 We look forward to see you all in Sarajevo,  
 
-*Philip and Morten*
+*Fenja and Jolien*
 
 ### **System requirements**
 
@@ -113,7 +113,7 @@ type `Yes` in the console and press the return key.
 
 ## Column 1
 
-### Monday's materials
+### Tuesday's materials
 
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
@@ -133,7 +133,7 @@ Lecture presentation and exercises will be made available here. Download the fil
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
-# Tuesday
+# Wednesday
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
@@ -151,7 +151,7 @@ Lecture presentation and exercises will be made available here. Download the fil
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 
-# Wednessday
+# Thursday
 
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
@@ -168,15 +168,11 @@ Lecture presentation and exercises will be made available here. Download the fil
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
-# Thursday
+# Friday
 
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
-
-- Part G: Recreating the BoP for MaR
-    - [Lecture G](Contents/Material/Part G - CBBH example/Lecture_G.html){target="_blank"}
-    - [example.R](Contents/Material/Part G - CBBH example/example.R){target="_blank"}
 
 - Part H: Plots and reports
     - [Lecture H](Contents/Material/Part H - Plots and reports/Lecture_H.html){target="_blank"}
