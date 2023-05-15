@@ -21,22 +21,25 @@ output:
 * Data visualization
 
 ## Info
-* All up-to-date info and material on webpage: pccporter.github.io/R-for-CBBH.
+* All up-to-date info and material on webpage: 
+
+  [joliencremers.github.io/R-for-BHAS-2023](https://joliencremers.github.io/R-for-BHAS-2023).
+
 * Two sessions per day
 * Lecture - Exercise
 
 ## Program
 
 |Day | Time        | Topic                                           |
-|:---------|:-----------------|:------------------------------------------------|
-|**Monday**| 10.00-12.00 | Introduction to R and RStudio                   |
-|| 13.00-15.30 | Datatypes in R and basic syntax                 |
-|**Tuesday**| 09.00-12.00 | Reading external data into R                    |
-|| 13.00-15.30 | Data manipulation and tidyverse                 |
-|**Wednesday**| 08.30-10.30/09.00-12.00|  More data manipulation                          |
-|| 13.00-15.30 | Grouping and summarizing data                   |
-|**Thursday**| 08.30-10.30 | Examples with data from CBBH                    |
-|| 13.00-15.30 | Introduction to visualization and reports       |
+|:------------|:------------|:------------------------------------------------|
+| *Tuesday*   | 09.00-12.00 | Introduction to R and RStudio                 |
+|             | 13.00-15.30 | Datatypes in R and basic syntax                 |
+| *Wednesday* | 09.00-12.00 | Reading external data into R                    |
+|             | 13.00-15.30 | Data manipulation and tidyverse                 |
+| *Thursday*  | 09.00-12.00 | Grouping and summarizing data                   |
+|             | 13.00-15.30 | More data manipulation (strings and dates)      |
+| *Friday*    | 09.00-10.00 | Introduction to visualization and reports       |
+|             | 10.00-12.00 | Working with BHAS data                          |
 
 ## Lecture A - Introduction to R and Rstudio
 
