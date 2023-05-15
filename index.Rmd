@@ -49,9 +49,9 @@ The course starts at a very basic level and builds up gradually. No previous exp
 |             | *Break*                                         |     
 | 13.00-15.30 | Data manipulation and tidyverse                 |
 | *Thursday*  |                                                 |
-| 09.00-12.00 | Grouping and summarizing data                   |
+| 09.00-12.00 | More data manipulation (strings and dates)      |
 |             | *Break*                                         |             
-| 13.00-15.30 | More data manipulation (strings and dates)      |
+| 13.00-15.30 | Grouping and summarizing data                   |
 | *Friday*    |                                                 |
 | 09.00-10.00 | Introduction to visualization and reports       |
 | 10.00-12.00 | Working with BHAS data                          |
@@ -152,14 +152,15 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
 
-- Part E: Summary stats
-    - [Lecture E](Contents/Material/Part E - Summary stats/Lecture_E.html){target="_blank"}
-    - [Practical E](Contents/Material/Part E - Summary stats/Practical_E.html){target="_blank"}
+- Part E: Strings and dates
+    - [Lecture E](Contents/Material/Part E - Strings and dates/Lecture_F.html){target="_blank"}
+    - [Practical E1](Contents/Material/Part E - Strings and dates/Practical_F1.html){target="_blank"}
+    - [Practical E2](Contents/Material/Part E - Strings and dates/Practical_F2.html){target="_blank"}
 
-- Part F: Strings and dates
-    - [Lecture F](Contents/Material/Part F - Strings and dates/Lecture_F.html){target="_blank"}
-    - [Practical F1](Contents/Material/Part F - Strings and dates/Practical_F1.html){target="_blank"}
-    - [Practical F2](Contents/Material/Part F - Strings and dates/Practical_F2.html){target="_blank"}
+- Part F: Summary stats
+    - [Lecture F](Contents/Material/Part F - Summary stats/Lecture_E.html){target="_blank"}
+    - [Practical F](Contents/Material/Part F - Summary stats/Practical_E.html){target="_blank"}
+
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 

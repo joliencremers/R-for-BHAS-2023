@@ -32,12 +32,12 @@ output:
 
 |Day | Time        | Topic                                           |
 |:------------|:------------|:------------------------------------------------|
-| *Tuesday*   | 09.00-12.00 | Introduction to R and RStudio                 |
+| *Tuesday*   | 09.00-12.00 | Introduction to R and RStudio                   |
 |             | 13.00-15.30 | Datatypes in R and basic syntax                 |
 | *Wednesday* | 09.00-12.00 | Reading external data into R                    |
 |             | 13.00-15.30 | Data manipulation and tidyverse                 |
-| *Thursday*  | 09.00-12.00 | Grouping and summarizing data                   |
-|             | 13.00-15.30 | More data manipulation (strings and dates)      |
+| *Thursday*  | 09.00-12.00 | More data manipulation (strings and dates)      |
+|             | 13.00-15.30 | Grouping and summarizing data                   |
 | *Friday*    | 09.00-10.00 | Introduction to visualization and reports       |
 |             | 10.00-12.00 | Working with BHAS data                          |
 
