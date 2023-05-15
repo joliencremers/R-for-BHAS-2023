@@ -143,12 +143,6 @@ load("boys.RData")
 ```
 or double-click the `boys.RData` file on your machine (right-click and `open with RStudio` if it does not open by default in `RStudio`, but in `R`). 
 
-<!-- You can also import it directly from the internet by running and loading the below code connection -->
-<!-- ```{r} -->
-<!-- con <- url("https://gerkovink.github.io/Statistical-Programming-with-R/Contents/Material/Part%20B%20-%20How%20is%20R%20organized/boys.RData") -->
-<!-- load(con) -->
-<!-- ``` -->
-
 The `boys` object will be added to your Global Environment. You can now use the `boys` data by running
 ```{r eval=FALSE}
 boys
