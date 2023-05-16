@@ -41,7 +41,7 @@ The course starts at a very basic level and builds up gradually. No previous exp
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
 | *Tuesday*   |                                                 |
-| 09.00-12.00 | Introduction to R and RStudio                   |
+| 10.00-12.00 | Introduction to R and RStudio                   |
 |             | *Break*                                         |
 | 13.00-15.30 | Datatypes in R and basic syntax                 |
 | *Wednesday* |                                                 |
