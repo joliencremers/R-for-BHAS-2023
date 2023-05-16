@@ -1,0 +1,247 @@
+---
+title: "Summary statistics"
+subtitle: "using base R and tidyverse"
+author: "Statistics Denmark"
+output:
+  ioslides_presentation:
+    logo: figures/logo_en.png
+    smaller: yes
+    widescreen: yes
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+options(width = 60)
+knitr::opts_chunk$set(echo = TRUE, rows.print=6)
+options(tibble.print_max = 6, tibble.print_min = 4)
+```
+
+
+## Packages we'll use
+
+```{r, message=FALSE}
+library(dplyr)
+library(readxl)
+```
+
+```{r echo=F, out.width='25%', out.extra='style="float:right; padding:5px"'}
+knitr::include_graphics("figures/dplyr_logo.png")
+```
+
+
+## Income data
+
+The income dataset is from the 1994 Census database. It is also known as “Census
+Income” or "Adult" dataset. Details of this dataset can be found at [UCI Machine
+Learning Repository](https://archive.ics.uci.edu/ml/datasets/Adult)
+
+
+## Government debt data (quarterly)
+
+The government data is retrieved from eurostat: 
+[gov_10q_ggdebt data](https://ec.europa.eu/eurostat/databrowser/view/gov_10q_ggdebt/default/table?lang=en).
+
+
+## Load data
+
+
+```{r}
+
+income <- read.table("data/income.data", 
+                               sep = ',', 
+                               fill = F, 
+                               strip.white = T) |> 
+  as_tibble()
+
+colnames(income) <- c('age', 'workclass', 'fnlwgt', 'education',
+                      'education_num', 'marital_status', 'occupation',
+                      'relationship', 'race', 'sex', 'capital_gain',
+                      'capital_loss', 'hours_per_week', 'native_country',
+                      'income')
+
+debt <- read_xlsx("data/eu_debt.xlsx") |> 
+  as_tibble()
+
+```
+
+## Data
+
+```{r}
+glimpse(income)
+```
+
+
+## Data
+
+```{r}
+head(debt)
+```
+
+
+# Summary statistics
+
+
+## Summarising data with base 
+
+  - `summary()`
+  - `mean()`, `median()`, `min()`, `max()`, `sum()`, `sd()`
+  - `quantile()`
+  - `rowMeans()`, `colMeans()`,  `rowSums()`, `colSums()`
+
+
+## Summarising data with base R
+
+**summary**
+
+```{r}
+summary(debt |> select(1:5))
+```
+
+## Summarising data with base R
+
+**mean**, **median**, **max**, **min**, **sum**
+
+```{r}
+mean(debt$Netherlands); median(debt$Netherlands)
+max(debt$Netherlands); min(debt$Netherlands); sum(debt$Netherlands)
+```
+
+## Summarising data with base R
+
+**sd**, **var**
+
+```{r}
+sd(debt$Netherlands); var(debt$Netherlands)
+```
+
+
+## Summarising data with base R
+
+**quantile**
+
+```{r}
+quantile(debt$Netherlands, 0.5)
+median(debt$Netherlands)
+
+quantile(debt$Netherlands, 0.95)
+```
+
+
+## Summarising data with base R
+
+Row operations
+
+```{r}
+debt |> 
+  mutate(sums = rowSums(debt |> select(-Time))) |> 
+  select(Time, sums)
+```
+
+
+## Summarising data with base R
+
+Row operations
+```{r}
+debt |> 
+  mutate(means = rowMeans(debt |> select(-Time))) |> 
+  select(Time, means)
+```
+
+
+## Summarising data with base R
+
+Column operations
+
+```{r}
+debt |> select(-Time) |> colSums() |> head(3)
+debt |> select(-Time) |> colMeans() |> head(3)
+```
+
+
+## Summarise using tidyverse
+
+**summarise**
+
+```{r}
+income |> 
+  summarise(n_individuals = n(),
+            mean_age= mean(age, na.rm = T),
+            max_age = max(age, na.rm = T))
+```
+
+
+## Summarise and grouping
+
+**group_by**
+
+```{r}
+income |> 
+  group_by(race, sex) |> 
+  summarise(n_individuals = n(),
+            mean_age= mean(age, na.rm = T),
+            max_age = max(age, na.rm = T))
+```
+`group_by` implies that computations along the length of the dataset are performed within specified groups (here race and sex)
+
+
+## Understand group_by()
+
+```{r}
+income |> 
+  group_by(sex) |> 
+  mutate(mean_hours = mean(hours_per_week, na.rm = TRUE),
+         low_hours = ifelse(hours_per_week < 37, TRUE, FALSE),
+         .keep = "used") |> 
+  arrange(hours_per_week)
+```
+Note that the groups remain attached to the data until one uses `ungroup()`
+
+
+## Understand group_by()
+
+- Groups remain attached to the dataset until we remove them
+  - Can be done with `ungroup()`
+  - A `summarise` removes the latest grouping layer:
+```{r, message=FALSE}
+income |> group_by(sex, race) |> summarise(n_individuals = n())
+```
+
+
+## Understand group_by()
+
+```{r, eval = TRUE, message = FALSE}
+grouped <- income |> 
+  group_by(sex, race) |> # Data is grouped by sex and race 
+  summarise(n_individuals = n())  # Data is grouped by sex
+
+grouped
+
+grouped |> summarise(mean_individuals = mean(n_individuals)) # Data is no longer grouped
+```
+
+
+## Understand group_by()
+If we "forget" a group by, strange things can happen
+
+```{r}
+income |> 
+  group_by(sex) |> 
+  mutate(mean_hours = mean(hours_per_week, na.rm = TRUE),
+         low_hours = ifelse(hours_per_week < 37, TRUE, FALSE)) |> 
+  select(age, marital_status, low_hours)
+```
+Even though we did not select the sex variable this is still displayed in the data because we did not remove the grouping.
+
+## Understand group_by()
+Use `ungroup` to be safe.
+
+```{r}
+income |> 
+  group_by(sex) |> 
+  mutate(mean_hours = mean(hours_per_week, na.rm = TRUE),
+         low_hours = ifelse(hours_per_week < 37, TRUE, FALSE)) |> 
+  ungroup() |> 
+  select(age, marital_status, low_hours)
+```
+
+# Exercises

@@ -1,0 +1,172 @@
+---
+title: "Exercises for data manipulation"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(webexercises)
+```
+
+## 1. Introduction
+
+For these exercises, we will be using the `flights` data set, which is included in the `nycflights13` package.
+
+
+```{r message=FALSE, warning=FALSE}
+
+library("tidyverse")
+library("nycflights13")
+
+```
+
+It is highly recommended to open RStudio's [cheat sheet](https://www.rstudio.org/links/data_transformation_cheat_sheet) for dplyr.
+
+
+## 2. Choosing rows and columns
+
+### Exercise 2.1
+Choose only flights in the data set that originate from JFK airport and select just the columns carrier, flight, origin, and dest.
+
+`r hide("Hint")`
+
+Use filter() and select()
+
+`r unhide()`
+
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+data_jfk <- flights |> 
+  filter(origin == "JFK") |> 
+  select(carrier, flight, origin, dest)
+
+```
+
+### Exercise 2.2
+Choose flights by all other carriers than United Airlines (UA), and drop the variable `distance`.
+
+```{r eval=FALSE, webex.hide="Answer"}
+data_drop <- flights |> 
+  filter(carrier != "UA") |> 
+  select(-distance)
+```
+
+### Exercise 2.3
+Choose flights run by United (UA), American (AA) and Delta (DL) Airlines. Only include flights with a distance between 800 and 1200 miles.
+
+`r hide("Hint")`
+
+Use `%in%` and/or `between()` in the filter() call. Logical conditions can be put together with `&` (*and*) and `|` (*or*)
+
+`r unhide()`
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+data_carrier_miles <- flights |> 
+  filter(carrier %in% c("UA", "AA", "DL") & between(distance, 800, 1200)) 
+
+# Alternative
+data_carrier_miles_alt <- flights |> 
+  filter(carrier %in% c("UA", "AA", "DL") & distance %in% 800:1200)
+
+```
+
+
+### Exercise 2.4
+Choose flights to Atlanta (ATL) that do *NOT* have a distance of 800 to 1200 miles. 
+
+`r hide("Hint")`
+This can be rephrased as "Flights to Atlanta with a distance of less than 800 miles or more than 1200 miles", or we can negate (take the inverse) by using `!` (for example, `!(month %in% c(1, 2))` means "month NOT in c(1, 2)")
+`r unhide()`
+
+```{r eval = FALSE, webex.hide="Answer"}
+flights |> 
+  filter(dest == "ATL" & !(distance %in% 800:1200))
+```
+
+
+### Exercise 2.5
+Drop any variable with the word 'time' in its name
+```{r eval=FALSE, webex.hide="Answer"}
+flights |> 
+  select(-contains("time"))
+```
+
+### Exercise 2.6 
+Choose all rows with no missing values in variables where the column name starts with 'dep_'.
+
+`r hide("Hint")`
+The simple solution uses `is.na` multiple times and typing the full variable names.
+
+For more practical solution: Use a variable selection helper and look at the slide about `if_any` and `if_all`.
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+# Simple solution (when only one or two variables)
+flights |> 
+  filter(!is.na(dep_time) & !is.na(dep_delay))
+
+# Fancy solution (when more variables)
+flights |> 
+  filter(!if_any(starts_with("dep_"), is.na))
+```
+
+
+## 3. Add new columns
+
+### Exercise 3.1
+Make a column that contains the air time in hours (currently, the air_time column is in minutes)
+```{r eval = FALSE, webex.hide="Answer"}
+flights |> 
+  mutate(air_time_hours = air_time / 60)
+```
+
+
+### Exercise 3.2
+Create a column that splits distance into three different groups: 'under 500 miles', '500-1000 miles' and 'more than 1000 miles'.
+
+`r hide("Hint")`
+
+Use `mutate()` and `case_when()` (type `?case_when` in the console to see arguments)
+
+`r unhide()`
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+data_dist_grp <- flights |> 
+  mutate(dist_grp = case_when(distance < 500 ~ "under 500 miles",
+                              distance >= 500 & distance <= 1000 ~ "500-1000 miles",
+                              distance > 1000 ~ "more than 1000 miles"))
+```
+
+### Exercise 3.3
+Here we're trying to create a "capped" variable that shows the distance if it's less than 1000 miles, but just shows the value 1000 if distance is 1000 miles or more. What is wrong with this statement (apart from it being a bad idea to create such a variable), and how can we fix it?
+
+```{r eval=FALSE}
+flights |> 
+  mutate(dist_capped = min(distance, 1000))
+```
+
+`r hide("Hint")`
+We can solve this using `if_else` or `case_when`, but there is also a useful function in the cheat sheet - you can take a look at the documentation for the function `min` to understand why it doesn't work.
+`r unhide()`
+
+`r hide("Answer")`
+The functions `max` and `min` return the largest/smallest value of a vector/variable, and if you put in multiple vectors/variables, they combine these and return the single largest/smallest value. So `min(distance)` returns the minimum of all distances in the data, and `min(distance, 100)` returns either the minimum of all distances or 100 if that is lower than the minimum distance. 
+
+The functions that make the comparison between the "capped" value and each individual observation instead are called `pmax` and `pmin`.
+
+```{r eval=FALSE}
+flights |> 
+  mutate(dist_capped = pmin(distance, 1000))
+```
+`r unhide()`
+
+
+
+
+
+
+
+

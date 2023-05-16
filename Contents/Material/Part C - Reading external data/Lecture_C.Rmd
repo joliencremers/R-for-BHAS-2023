@@ -4,12 +4,10 @@ author: "Statistical Programming with R"
 date: ""
 output:
   ioslides_presentation:
-    fig_height: 5
-    fig_width: 8
-    logo: logo_en.png
-    transition: faster
-    smaller: true
-  beamer_presentation: default
+    logo: figures/logo_en.png
+    smaller: yes
+    widescreen: yes
+    self_contained: true
 ---
 
 ## Program
@@ -25,44 +23,44 @@ In this lecture we will look at:
 # Packages
 ## Packages
 
-- Until now we have worked with only the functionality in `base`
+- Until now we have worked with only the functionality in `base`:
   - All R-installations have it
   - Powerful, robust and basic 
-- But Often we need more... That's where packages come in.
+- But often we need more. That's where packages come in.
 
 ## What is a package
-- Packages are a collection of functions and datasets
-- Extends the functionality of R
+- Packages are a collection of functions and datasets.
+- Extends the functionality of R:
   - Read different file-formats (Excel, CSV, JSON, SAS...)
   - Create more advanced statistical models
   - Create beautiful figures, reports and webpages
   - Introduce more convenient methods for datamanipulation
-  - ... And much more
+  - And much more
 - An example is the package `mice` which can be used for Multivariate Imputation
 by Chained Equations (don't worry about this, but is quite useful)
 
 ## Packages
- - Installation
+Installation:
 ```{r, eval = FALSE}
 install.packages("mice")
 ```
  
- - Load it
+Load it:
 ```{r message = FALSE}
 library(mice)
 ```
 
- - Use it
+Use it:
 ```{r}
 boys[1:5,]
 ```
  
  
 ## Installation
- - New packages are installed with the function `install.packages`
- - It searches the CRAN-repository for packages with the provided name
+ - New packages are installed with the function `install.packages`.
+ - It searches the CRAN-repository for packages with the provided name.
  - More than 19470 packages. Generally of high quality.
- - Automatically install dependencies if needed
+ - Automatically installed dependencies if needed
 
 ```{r message = T}
 install.packages("mice")
@@ -77,7 +75,7 @@ install.packages("mice")
 
 ## Load it
  - Once a package is installed you can load it with `library`.
- - This attaches it to your session and you can use all the functions and datasets in it
+ - This attaches it to your session and you can use all the functions and datasets in it.
  - But you can not see it in your environment?
  
 ```{r message = FALSE}
@@ -107,16 +105,15 @@ ls()
 </center>
 
 ## Use it
- - Now we can call the functions and datasets in the package as other object we
+ Now we can call the functions and datasets in the package as other object we
  have created. For instance we now have access to the `boys`-dataset without loading
- the `boys.RData`
+ the `boys.RData`:
 ```{r}
 boys[1:5,]
 ```
 
 ## Use it
- - To only load a single object from a package use the `package::object`-notation
- - Then you do not have to load the entire package
+To only load a single object from a package use the `package::object`-notation:
 ```{r}
 mice::boys[1:3,]
 ```
@@ -132,13 +129,13 @@ mice::boys[1:3,]
   - Is the project still maintained (i.e. when was the last update on github or where-ever the project lives)
 
 ## Getting more help
-- Many of the popular packages have more userfriendly documentation called vignettes
+Many of the popular packages have more userfriendly documentation called vignettes
 ```{r eval = FALSE}
 browseVignettes("readr")
 ```
 
 ## Getting more help
-- Some packages also have cheat sheets which you can find with google ("R: readr cheat sheet") or on [posit.co/resources/cheatsheets/](https://posit.co/resources/cheatsheets/)
+Some packages also have cheat sheets which you can find with google ("R: readr cheat sheet") or on [posit.co/resources/cheatsheets/](https://posit.co/resources/cheatsheets/)
 <center>
 <img src="figures/fig5.png" alt="HTML5 Icon" width = 100%>
 </center>
@@ -146,6 +143,9 @@ browseVignettes("readr")
 ## Getting more help
 - Most popular packages should have either a good help page, a vignette or a cheat sheet... Or preferably all of them
 - ...but often when you have problems the best source of help is the internet.
+
+
+# Reading datafiles
 
 ## Packages
 We will use these packages in this lecture
@@ -160,39 +160,37 @@ library(DBI)
 library(RSQLite)
 ```
 
-# Reading datafiles
 ## Path to files
  - When you start R it has a Working Directory. It is either your systems userdirectory or the directory of your project.
- - To see your current Working Directory use the function `getwd`
+ - To see your current Working Directory use the function `getwd`:
 ```{r eval = FALSE}
 getwd()
 ```
 ```{r echo = F}
-"C:/Users/Morten"
+"C:/Users/Jolien"
 ```
 
 - R will first look for files in your Working Directory
 
 ## Example
-- I have created a small textfile called "example.txt" and put it in the path "C:/Users/Morten/example.txt"
+- I have created a small textfile called "example.txt" and put it in the path "C:/Users/Jolien/example.txt"
 - R can now find it easily because it is in my working directory.
 - You just need to write:
 ```{r eval = F}
 file("example.txt")
 ```
-- Alternatively i could write the full path 
-- Notice that we use slash (/) and not backslash(\\):
+- Alternatively I could write the full path, notice that we use slash (/) and not backslash(\\):
 ```{r eval = F}
-file("C:/Users/Morten/example.txt")
+file("C:/Users/Jolien/example.txt")
 ```
-- This i called a relative and an absolute path.
+- This is called a relative and an absolute path.
 
 ## Absolute vs. relative path
 As a rule of thumb:  
 
-- When the file is in your project folder you should use relative paths  
-  - This makes your project portable and avoids unnecessary long paths
-- If the file is a system file or on a shared drive you should use absolute paths
+- When the file is in your project folder you should use relative paths : 
+  - This makes your project portable and avoids unnecessary long paths.
+- If the file is a system file or on a shared drive you should use absolute paths.
 
 ## Writing to files
 - Often you would like to export your datasets into a permanent storage once you
@@ -200,7 +198,7 @@ are done working with them. An example we already used was `boys.RData`.
 - Today we will export the same dataset to some more common formats.
 
 ## Writing to files
-- Can be simple
+Can be simple:
 ```{r}
 # CSV (using the package readr)
 readr::write_csv2(boys, "boys.csv")
@@ -211,10 +209,10 @@ openxlsx::write.xlsx(boys, "boys.xlsx")
 # STATA (using the package haven)
 haven::write_dta(boys, "boys.dta")
 ```
-- All these functions have a lot of arguments!
+All these functions have a lot of arguments!
 
 ## Reading from files
-- Also simple
+Also simple:
 ```{r message = F}
 # CSV
 boys_csv <- readr::read_csv2("boys.csv")
@@ -226,32 +224,32 @@ boys_xlsx <- openxlsx::read.xlsx("boys.xlsx")
 boys_dta <- haven::read_dta("boys.dta")
 ```
 - Notice that we use `read_csv2` and not `read_csv`.
-- This uses `;` to separate values instead of `,` which can be problematic in our region
+- This uses `;` to separate values instead of `,` which can be problematic in our region.
 
 ## Reading from files
-- But something has changed
+But something has changed:
 ```{r}
 boys_csv[1:5,]
 ```
-- CSV-files does not have the datatype `factor` and it is cast as `character`
+- CSV-files do not have the datatype `factor` and it is cast as `character`
 - Always inspect your data after importing!
 
 # Databases
 ## Databases
-- Tabular data can be stored in relational databases s.a.
+- Tabular data can be stored in relational databases like:
   * Oracle (`ROracle`)
   * PostGres (`RPostgresql`)
   * MySql (`RMysql`)
   * SQLite (`RSQLite`)
 - Working with databases is an entire course in itself, but we will look at how
 to use the `DBI`-package to interact with `SQLite`.
-- Very similar syntax when using other database-backends
+- Very similar syntax when using other database-backends.
 
 ## DBI
 
 - Short for DataBase Interface
 - Strives to make a common interface to all the different backends
-- All functions start with `db` and then a verb s.a. `dbConnect`
+- All functions start with `db` and then a verb e.g. `dbConnect`
 - Most major backends are supported.
 - Workflow:
   * Connect to database
@@ -277,26 +275,26 @@ con
 
 ```{r echo = FALSE}
 cat("<SQLiteConnection>
-  Path: C:\\Users\\Morten\\boys_database.sqlite
+  Path: C:\\Users\\Jolien\\boys_database.sqlite
   Extensions: TRUE")
 ```
 - The database is a simple file in `SQLite`.
-- The argument `dbname` could be any valid pathname  
+- The argument `dbname` could be any valid pathname. 
 
 ## Write to database
-- To write a dataset to a database use  `dbWriteTable`
+To write a dataset to a database use  `dbWriteTable`:
 ```{r}
 dbWriteTable(con,
              name = "boys_table",
              value = boys)
 ```
-- We can now see that a table has been create
+We can now see that a table has been created:
 ```{r}
 dbListTables(con)
 ```
 
 ## Reading from database
-- To read a table into R we use `dbReadTable`
+To read a table into R we use `dbReadTable`:
 ```{r}
 boys_from_db <- dbReadTable(con, "boys_table")
 boys_from_db[1:5,]
@@ -304,9 +302,9 @@ boys_from_db[1:5,]
 
 
 ## SQL-queries
-- You can also use SQL to make more specific and powerful queries from your database
-- It is beyond the scope of this course, but if you work with databases it is worth it to learn some basic SQL
-- To send a query to the database and fetch the result use `dbGetQuery`
+- You can also use SQL to make more specific and powerful queries from your database.
+- It is beyond the scope of this course, but if you work with databases it is worth it to learn some basic SQL.
+- To send a query to the database and fetch the result use `dbGetQuery`:
 ```{r}
 old_boys <- dbGetQuery(con, "SELECT * FROM BOYS_TABLE WHERE age > 20")
 old_boys[1:5,]

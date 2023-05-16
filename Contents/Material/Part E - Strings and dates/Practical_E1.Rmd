@@ -1,0 +1,140 @@
+---
+title: "Exercises for data manipulation - E1"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(webexercises)
+```
+
+### Øvelse 1.1
+
+Load the package `tidyr` (or go crazy and just install the whole tidyverse). Run the following piece of code which creates a data set called `persons`.
+
+```{r class.source = 'fold-show', message=FALSE}
+
+persons <- tribble(
+  ~name,             ~measure,  ~value,
+  "Anne Smith", "age", 45,
+  "Anne Smith", "height in cm", 171,
+  "Peter Rowe", "age", 37,
+  "Peter Rowe", "height in cm", 166,
+  "Virginia Castles", "age", 20,
+  "Virginia Castles", "height in cm", 168
+)
+```
+
+Make the data wider, so that each person is one row.
+
+`r hide("Hint")`
+Use `pivot_wider()`. Potentially look at what the argument `names_repair` does.
+`r unhide()`
+
+`r hide("Answer")`
+```{r}
+
+persons |> 
+  pivot_wider(names_from = measure, values_from = value)
+
+```
+
+"height in cm" is not a standard variable name and can become cumbersome to work with. If this bothers us, we can use the argument `names_repair` for repairing the names.
+
+```{r}
+persons |> 
+  pivot_wider(names_from = measure, values_from = value, names_repair = "universal")
+```
+`r unhide()`
+
+### Exercise 1.2
+
+Repeat the exercise with this table - here, several persons have the same name, and the measurements have an associated uncertainty.
+
+```{r}
+persons <- tribble(
+  ~name, ~by, ~measure,  ~value, ~uncertainty,
+  "Anne Smith", "London",   "age",       45, 0,
+  "Anne Smith", "London",   "height in cm", 171, 0,
+  "Anne Smith", "Leeds", "age",       88, 0,
+  "Anne Smith", "Leeds", "height in cm", 154, 0.5,
+  "Peter Rowe", "Exeter", "age",       37, 0,
+  "Peter Rowe", "Exeter", "height in cm", 166, 1.3,
+  "Virginia Castles", "Bristol",  "age",       20, 1,
+  "Virginia Castles", "Bristol",  "height in cm", 168, 1.4
+)
+```
+
+`r hide("Answer")`
+
+```{r}
+persons |> 
+  pivot_wider(names_from = measure, values_from = c(value, uncertainty), names_repair = "universal")
+```
+
+Be aware that `pivot_wider` assumes, that anything not included in `values_from` or `names_from` is an ID variable. Therefore, it can tell the difference between Anne in London and Anne in Leeds.
+
+If we want more control over the names of the variables we create, we can use the `names_glue` argument.
+```{r}
+persons |> 
+  pivot_wider(names_from = measure, values_from = c(value, uncertainty), names_repair = "universal",
+              names_glue = "{measure}_{.value}")
+```
+`r unhide()`
+
+### Exercise 1.3a
+
+The data set `relig_income` is built in to `tidyr`. The documentation can be seen with `?relig_income`. 
+
+Transform the data set so that each row contains the number of respondents in each combination of income group and religion
+
+```{r webex.hide="Answer"}
+relig_income_long <- relig_income %>% 
+  pivot_longer(cols = -religion, names_to = "income", values_to = "respondents")
+```
+
+### Exercise 1.3b
+
+Use the resulting table to calculate the number of respondents in each religious group, each income group, and the corresponding percentages.
+
+`r hide("Hint")`
+Use `group_by()` and `summarise()`
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+
+relig_income_long |> 
+  group_by(religion) |> 
+  summarise(respondents = sum(respondents)) |>
+  mutate(pct = 100 * respondents / sum(respondents))
+
+relig_income_long |> 
+  group_by(income) |> 
+  summarise(respondents = sum(respondents))|>
+  mutate(pct = 100 * respondents / sum(respondents))
+
+```
+
+### Exercise 1.3c
+
+Create a cross table showing how many answered / didn't answer each of the two variables.
+
+`r hide("Hint")`
+Use mutate to create variables on whether the questions have been answered or not. Use group_by and summarise to sum up, then use pivot_wider on the results.
+`r unhide()`
+
+`r hide("Answer")`
+
+```{r}
+
+relig_income_long |> 
+  mutate(religion = if_else(religion == "Don’t know/refused", "Didn't answer", "Answered"),
+         income = if_else(income == "Don't know/refused", "Didn't answer", "Answered")) |> 
+  group_by(religion, income) |> 
+  summarise(respondents = sum(respondents)) |> 
+  ungroup() |> 
+  pivot_wider(values_from = respondents, names_from = income)
+
+```
+`r unhide()`

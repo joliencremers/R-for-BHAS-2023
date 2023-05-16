@@ -1,0 +1,130 @@
+---
+title: "Exercises for summary statistics"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("webexercises")
+```
+
+## 1. Summarising and grouping
+
+We recommend opening Rstudios [cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf) for dplyr:
+
+We will work with the `income` data from the slides.
+
+```{r message=FALSE, warning=FALSE}
+
+library(dplyr)
+
+```
+
+
+### Exercise 1.1
+
+Create a summary that gives the number of persons in the data and the amount of
+different education levels in the `income` data.
+
+```{r eval = FALSE, webex.hide="Answer"}
+income |> 
+  summarise(n_individuals = n(),
+            n_education = n_distinct(education))
+```
+
+### Exercise 1.2
+
+Create a summary that gives the lowest working hours per week, proportion of
+individuals with education listed as 'Bachelor' and the amount of individuals with a
+missing native country (note that missing values in this variable are coded as
+`?`, so they must be recoded).
+
+```{r eval=FALSE, webex.hide="Answer"}
+income |> 
+  mutate(native_country = case_when(native_country == '?' ~ NA,
+                                    TRUE ~ native_country)) |>  #recode missings
+  summarise(lowest_work_hours = min(hours_per_week),
+            amount_NA_native_country = sum(is.na(native_country)),
+            propor_bachelor = sum(education == 'Bachelors')/n())
+```
+
+
+### Exercise 1.3
+Compute the amount of individuals for each marital status.
+
+`r hide("Hint")`
+
+Use `group_by()` and `n()` in `summarise()`
+
+`r unhide()`
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+income |> 
+  group_by(marital_status) |>
+  summarise(amount = n())
+
+# An easy alternative:
+income |> 
+  count(marital_status)
+```
+
+
+### Exercise 1.4
+
+Create a summary that is grouped by marital status and, for each marital status, shows the amount of
+individuals, the amount of females, the lowest age and
+the mean age.
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+income |> 
+  group_by(marital_status) |>
+  summarise(amount = n(),
+            amount_of_females = sum(sex == "Female"),
+            lowest_age = min(age),
+            mean_age = mean(age))
+```
+
+### Exercise 1.5
+
+Create a summary, grouped by martial status and workclass, that shows the amount
+of individuals and the proportion of individuals with a listed Bachelor education in
+each group. Rename the `workclass` variable to something more fitting and save this data set
+as a CSV file.
+
+```{r eval = FALSE, webex.hide="Answer"}
+
+data_new <- income |> 
+  group_by(marital_status, workclass) |>
+  summarise(amount = n(),
+            bachelors_proportion = mean(education == "Bachelors")) |> 
+  ungroup() |> 
+  rename(sector = workclass)
+
+write_csv2(data_new, "data/data_ex1_5.csv")
+
+```
+
+### Exercise 1.6
+
+What goes wrong here and how can it be fixed?
+
+```{r, eval=FALSE}
+income |> 
+  mutate(capital_gain = case_when(capital_gain == '99999' ~ NA,
+                                  TRUE ~ capital_gain)) |>  #recode missings
+  summarise(mean_gain = mean(capital_gain)) # Compute the mean capital gain
+```
+
+`r hide("Answer")`
+By default the function `mean` will return a missing value if there are any missing values in the input data to the function. If one wants to compute the mean for those without a missing capital gain one can proceed as follows:
+```{r, eval=FALSE}
+income |>  
+  mutate(capital_gain = case_when(capital_gain == '99999' ~ NA,
+                                  TRUE ~ capital_gain)) |>  #recode missings
+  summarise(mean_gain = mean(capital_gain, na.rm = TRUE)) # Compute the mean capital gain
+```
+`r unhide()`
+
+

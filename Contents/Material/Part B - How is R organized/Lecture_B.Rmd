@@ -3,11 +3,10 @@ title: "Datatypes and syntax"
 date: "Statistical Programming with R"
 output:
   ioslides_presentation:
-    logo: logo.png
+    logo: figures/logo_en.png
     smaller: yes
-    transition: faster
-    widescreen: no
-  beamer_presentation: default
+    widescreen: yes
+    self_contained: true
 ---
 
 ## Recap

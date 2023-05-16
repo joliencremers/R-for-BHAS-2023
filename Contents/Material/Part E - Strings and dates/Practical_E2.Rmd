@@ -1,0 +1,101 @@
+---
+title: "Exercises for data manipulation - E2"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(webexercises)
+```
+
+# 1 - stringr exercises
+
+We'll be working with the `airlines` dataset for these exercises.
+
+```{r eval = TRUE, message=FALSE}
+library(nycflights13)
+library(lubridate)
+library(tidyverse)
+```
+
+## 1.0 Check for duplicates
+
+Check whether there are any duplicates in the variable `name`.
+
+`r hide("Hint")`
+You can use `group_by` followed by `filter`, or the function `anyDuplicated`
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+airlines |> group_by(name) |> filter(n() > 1)
+
+# Or
+airlines |> pull(name) |> anyDuplicated()
+
+
+# Or
+airlines |> pull(name) |> duplicated() |> any()
+```
+
+## 1.1 Find strings
+
+Keep only rows where the airline name contains "america" (upper- or lowercase).
+
+`r hide("Hint")`
+To make sure we don't miss any instances where there are some capital letters, we can use str_to_lower() combined with str_detect()
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+airlines |> 
+  filter(str_detect(str_to_lower(name), "america"))
+```
+
+## 1.2 Replace strings
+
+Replace any instances of "Air" with "Sea" and "US" with "United States".
+
+`r hide("Hint 1")`
+Remember that to do this, you need to create a new variable (or edit an existing one)
+`r unhide()`
+
+`r hide("Hint 2")`
+Use str_replace_all(). See ?str_replace_all for how to handle more than one substitution.
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+airlines |> 
+  mutate(new_name = str_replace_all(name, c("Air" = "Sea", "US" = "United States")))
+```
+
+# 2 - Exercises with lubridate
+
+We will again be working with the `flights` data.
+
+## 2.1 Date variable
+
+Make a combined date variable out of the first three variables in `flights`.
+
+`r hide("Hint")`
+You will need to combine the `ymd()` function (or similar) with `paste()` or `str_c()`. For pasting, you will need to use the `sep` argument.
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+flights_dates <- flights |> 
+  mutate(date = ymd(paste(year, month, day, sep = "-")))
+```
+
+## 2.2 Tuesday flights 
+
+Limit the data you just created to flights on a Tuesday. 
+
+`r hide("Hint")`
+Use the function `wday`. Check what day the default start of the week is in the function - it can be controlled with the `week_start`argument.
+`r unhide()`
+
+```{r eval=FALSE, webex.hide="Answer"}
+
+# If the want the week to start on a Monday
+flights_dates |> 
+  filter(wday(date, week_start = 1) == 2)
+```

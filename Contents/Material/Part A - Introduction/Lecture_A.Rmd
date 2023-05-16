@@ -4,12 +4,10 @@ author: "Statistical Programming with R"
 date: ""
 output:
   ioslides_presentation:
-    fig_height: 5
-    fig_width: 8
-    transition: faster
-    logo: logo_en.png
-    smaller: true
-  beamer_presentation: default
+    logo: figures/logo_en.png
+    smaller: yes
+    widescreen: yes
+    self_contained: true
 ---
 
 # Overview of this course
