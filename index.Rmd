@@ -161,6 +161,8 @@ Lecture presentation and exercises will be made available here. Download the fil
 - Part F: Summary stats
     - [Lecture F](Contents/Material/Part F - Summary stats/Lecture_E.html){target="_blank"}
     - [Practical F](Contents/Material/Part F - Summary stats/Practical_E.html){target="_blank"}
+    - [income.data](Contents/Material/Part F - Summary stats/data/income.data){target="_blank"}
+    - [eu_debt.xlsx](Contents/Material/Part F - Summary stats/data/eu_debt.xlsx){target="_blank"}
 
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
