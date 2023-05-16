@@ -3,4 +3,7 @@
 .RData
 .Ruserdata
 .gitignore
-
+/Contents/Material/Part C - Reading external data/boys.csv
+/Contents/Material/Part C - Reading external data/boys.dta
+/Contents/Material/Part C - Reading external data/boys.xlsx
+/Contents/Material/Part C - Reading external data/boys_database.sqlite
