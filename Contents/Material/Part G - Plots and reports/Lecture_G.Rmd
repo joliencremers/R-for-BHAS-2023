@@ -246,7 +246,7 @@ options("kableExtra.html.bsTable" = T) #For kableExtra with ioslides
 **Who is it for**  
 * For communicating to decision makers, who want to focus on the conclusions, not the code behind the analysis.
 
-* For collaborating with other data scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
+* For collaborating with others (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
 
 *  As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
 

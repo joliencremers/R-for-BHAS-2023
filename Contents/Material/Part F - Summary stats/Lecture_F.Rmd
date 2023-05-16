@@ -81,7 +81,7 @@ head(debt)
 # Summary statistics
 
 
-## Summarising data with base 
+## Summarising data with base  R
 
   - `summary()`
   - `mean()`, `median()`, `min()`, `max()`, `sum()`, `sd()`
