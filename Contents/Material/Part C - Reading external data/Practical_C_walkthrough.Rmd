@@ -49,7 +49,7 @@ browseVignettes("DBI")
 
 ---
 
-4. **Together with 3-4 coleagues make a dataframe with three columns. One column should be a character column with your names. The second column should be a numeric column with your shoe size. The third column should be a logical columnd with `TRUE` if you have used `R` before and `FALSE` if you have not. Assign the dataframe to a name you choose yourselves**
+4. **Together with 3-4 colleagues make a dataframe with three columns. One column should be a character column with your names. The second column should be a numeric column with your shoe size. The third column should be a logical column with `TRUE` if you have used `R` before and `FALSE` if you have not. Assign the dataframe to a name you choose yourselves**
 
 To create the dataframe use the function `data.frame`. Speak with your colleagues
 to get values for your dataframe.
@@ -58,7 +58,7 @@ personal_data <- data.frame(names = c("Morten", "Philip", "Karen", "Emil"),
                             shoe_size = c(45, 46, 41, 42),
                             used_r = c(TRUE, TRUE, TRUE, TRUE))
 ```
-Here it is possible to make problems with the names. Spaces should be avoided and
+Here it is possible to create problems with the names. Spaces should be avoided and
 it is a convention to use *snakecase* (words seperated by _).
 
 ---
@@ -105,7 +105,7 @@ con <- dbConnect(drv = RSQLite::SQLite(),
 
 ---
 
-8. **Write the dataset to your database using the functions from the lecture. Check that there is actually create a table in the database.**
+8. **Write the dataset to your database using the functions from the lecture. Check that a table is actually created in the database.**
 
 To write our dataset to the database we use the function `dbWriteTable`. Check 
 the help page for the function to see the arguments.

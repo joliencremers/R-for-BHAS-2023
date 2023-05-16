@@ -322,7 +322,7 @@ dbDisconnect(con)
 ```
 
 ## Other databases
-- `SQlite` is often not a good candidate for a database. When working with official statistics you want a more featurecomplete database running on a dedicated server.
+- `SQlite` is often not a good candidate for a database. When working with official statistics you want a more feature complete database running on a dedicated server.
 - Everything apart from `dbConnect` is the same no matter what kind of database-backend you use.  
 - You have such a server, maybe an Oracle server?
 - A good place to start is [solutions.posit.co/connections/db/databases/](https://solutions.posit.co/connections/db/databases/)
