@@ -89,7 +89,7 @@ Execute the following lines of code in the console window:
 ```{r eval=FALSE, echo = TRUE}
 install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
                    "DBI", "devtools", "mice", "MASS", "sf", "lubridate", "openxlsx",
-                   "RSQLite", "printr", "nycflights13", "readxl", "ggplot2", 
+                   "printr", "nycflights13", "readxl", "ggplot2", 
                    "kableExtra", "knitr"), 
                  dependencies = TRUE)
 ```
