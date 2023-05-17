@@ -27,7 +27,7 @@ Now we will add a bit more building blocks
 In this lecture we will look the following subjects:  
 
   * Basic datatypes
-  * Vectors, matrices, arrays and lists
+  * Vectors, matrices, data frames, tibbles and lists
   * Logical operators
   * Factors
   * Functions
@@ -54,9 +54,8 @@ set.seed(123)
 
 # Datatypes and vectors
 ## Datatypes
-- The smallest object in R is called an atomic element.
 - Three basic datatypes:
-  * Numeric (double, integer and complex)
+  * Numeric (e.g. double, integer)
   * Character
   * Logical
 
@@ -124,7 +123,7 @@ as.numeric(a_sentence)
   - Logical to numeric (`FALSE=0` and `TRUE=1`)
   - Numeric to logical (`FALSE` if numeric is `0` else always `TRUE`)
   - Numeric to character (`6.7` will become `"6.7"`)
-- You can convert convert character to numeric if it **ONLY** contains numbers
+- You can convert character to numeric if it **ONLY** contains numbers
 - You can convert character to logical **ONLY** if it is `"TRUE"` or `"FALSE"`
 - If R does not know how to convert you get a missing value (`NA`)
 
@@ -204,14 +203,14 @@ cbind(c, letters[1:5])
 
   `logical`->`numeric`->`character`
 
-# Data frames
+# Tabular data
 
 ## Data frames
-To keep variables of different types in a 2D structure, the simplest answer is a **data frame** 
+To keep variables of different types in a 2D structure, the simplest answer is a **data frame**, a data structure from base-R
 ```{r}
-d <- data.frame("V1" = rnorm(5),
-                "V2" = rnorm(5, mean = 5, sd = 2), 
-                "V3" = letters[1:5])
+d <- data.frame("V1" = rnorm(50),
+                "V2" = rnorm(50, mean = 5, sd = 2), 
+                "V3" = letters[1:50])
 d
 ```
 
@@ -228,6 +227,8 @@ The way to obtain the third row from the data frame `d` is:
 ```{r}
 d[3, ]
 ```
+
+## Data frames
 
 Calling columns in data frames can be done in precisely the same way:
 ```{r}
@@ -257,35 +258,37 @@ d$V2[3:4]
 ```
 
 
-# Beyond two dimensions:<br>Arrays and lists
+## Tibbles
+- The 'tidy' version of a data.frame (from the `tibble` package, a part of `tidyverse`). 
+- Extension of a `data.frame` 
+- Prettier 'prints'
 
-## Arrays
-If you wish to use single datatype objects that have more than two dimensions, an array would be a suitable object.
 
-- The following code yields a 3-dimensional array, which may be thought of as 2 layers of a 3x4 matrix:
-```{r}
-e <- array(1:24, dim = c(3, 4, 2))
-e
+## Tibbles
+
+This is how you make a tibble:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
 ```
 
-## Arrays  
-The square bracket identification works similarly to the identification of matrices and dataframes, but with the added dimension(s).
 
-- To get the element in the first row of the third column in the second matrix you type:
 ```{r}
-e[1, 3, 2]
+tibble("V1" = rnorm(50),
+       "V2" = rnorm(50, mean = 5, sd = 2), 
+       "V3" = letters[1:50])
 ```
-- This is exactly the downside to an array: it is a series of matrices meaning that characters and numerical elements may not be mixed!
 
-## Arrays  
-We get problems if we replace the second matrix in the array by a character version of that same matrix:
+## Tibbles
+
+prettier print:
 ```{r}
-e[, , 2] <- as.character(e[, , 2])
-e
+d |> 
+  as_tibble()
 ```
-As for matrices the entire array is cast to chars!
 
-## The solution: Lists
+# Lists
+## Lists
 List are just what it says they are (i.e. lists), and you can have a list where the elements are of different types.
 
 - For example, create a simple list by typing:
@@ -392,97 +395,26 @@ f
 Why is "D" not included?
 
 ## Factor
-Can be useful for categoricals:
+Can be useful for categorical variables:
 ```{r}
 fruits <- factor(c("Apple", "Potato"),
                  levels = c("Apple", "Banana"))
 fruits
 ```
 
-## Beware of factors - they are not what they seem!
-
-Consider a data frame A:
-
-```{r echo=FALSE}
-
-A <- data.frame(V1 = 1:4, V2 = 4:1)
-
-A[,1] <- as.factor(A[,1])
-A[,2] <- as.factor(A[,2])
-
-A
-
-```
-
-##
-
-We can try to add elements of A: 
-
-```{r echo=T}
-
-A[2,1] + A[2,2]
-
-
-```
-
-But it seems logical enough to add them!
-
-```{r echo=T}
-
-typeof(A[2,1]) 
-
-typeof(A[2,2])
-
-```
-
-##
-
-
-Something weird is going on here!
-
-```{r echo=T}
-
-A[2,1] 
-
-A[2,2]
-
-
-```
-
-
-##
-
-The problem is caused by the elements of A being factors.
-
-```{r echo=T}
-
-A[2,2]
-
-
-```
-
-It's the keyword `Levels` that tells us that A is in fact a dataframe of factors.
-
-Factors do cause a lot of trouble for this exact reason. So when you troubleshoot, check if your elements actually have the type that you think they have!
 
 ## Factors in R
 
 - Sometimes R converts data to factors automatically when reading in the data.
   - This is not as big a problem as it used to be, but it is still a good idea to check
 
-- Strings are sometimes converted to factors automatically (unless you use a data structure called a tibble).
+- Strings are sometimes converted to factors automatically (unless you use tibbles).
 
 - Sometimes we have to do it ourselves (if we want the data to be factors).
 
 - You can make an element into a factor by using the function ´as.factor()´
 
-- If you want something not to be a factor, you have to convert it back to the type of element you need it to be:
-
-```{r echo=T}
-
-as.integer(A[2,1]) + as.integer(A[2,2])
-
-```
+- If you want something not to be a factor, you have to convert it back to the type of element you need it to be.
 
 
 ## Then why use factors?

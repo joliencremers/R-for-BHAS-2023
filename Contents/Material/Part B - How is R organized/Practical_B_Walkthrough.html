@@ -717,7 +717,7 @@ there?</strong></li>
 </ol>
 <p>The logical operators (TRUE vs FALSE) are a very powerful tool in
 <code>R</code>. For example, we can just select the rows (respondents)
-in the data that are older than 20 by putting the logical operater
+in the data that are older than 20 by putting the logical operator
 within the row index of the dataset:</p>
 <pre class="r"><code>boys2 &lt;- boys[boys$age &gt;= 20, ]
 nrow(boys2)</code></pre>
@@ -726,44 +726,6 @@ nrow(boys2)</code></pre>
 <pre class="r"><code>boys2.1 &lt;- subset(boys, age &gt;= 20)
 nrow(boys2.1)</code></pre>
 <pre><code>## [1] 12</code></pre>
-<hr />
-<ol start="16" style="list-style-type: decimal">
-<li><strong>Select all boys that are older than 19, but younger than
-19.5. How many are there?</strong></li>
-</ol>
-<pre class="r"><code>boys3 &lt;- boys[boys$age &gt; 19 &amp; boys$age &lt; 19.5, ]
-nrow(boys3)</code></pre>
-<pre><code>## [1] 18</code></pre>
-<p>or, alternatively,</p>
-<pre class="r"><code>boys3.2 &lt;- subset(boys, age &gt; 19 &amp; age &lt; 19.5)
-nrow(boys3.2)</code></pre>
-<pre><code>## [1] 18</code></pre>
-<hr />
-<ol start="17" style="list-style-type: decimal">
-<li><strong>What is the mean age of boys younger than 15 years of age
-that do not live in region <code>north</code>?</strong></li>
-</ol>
-<pre class="r"><code>mean(boys$age[boys$age &lt; 15 &amp; boys$reg != &quot;north&quot; ], na.rm = TRUE)</code></pre>
-<pre><code>## [1] 6.044461</code></pre>
-<p>or, alternatively,</p>
-<pre class="r"><code>mean(subset(boys, age &lt; 15 &amp; reg != &quot;north&quot;)$age, na.rm=TRUE)</code></pre>
-<pre><code>## [1] 6.044461</code></pre>
-<p>The mean age is 6.0444609 years</p>
-<hr />
-<p>Today we have learned to use <code>R</code> at its basics. This
-offers tremendous flexibility, but may also be inefficient when our aim
-is some complex analysis, data operation of data manipulation. Doing
-advanced operations in basic <code>R</code> may require lots and lots of
-code. Tomorrow we will start using packages that allow us to do
-complicated operations with just a few lines of code.</p>
-<p>As you start using <code>R</code> in your own research, you will find
-yourself in need of packages that are not part of the default
-<code>R</code> installation. The beauty of <code>R</code> is that its
-functionality is community-driven. People can add packages to
-<code>CRAN</code> that other people can use and improve. Chances are
-that a function and/or package has been already developed for the
-analysis or operation you plan to carry out. If not, you are of course
-welcome to fill the gap by submitting your own package.</p>
 <hr />
 <p>End of practical</p>
 </div>

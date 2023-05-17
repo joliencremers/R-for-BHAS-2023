@@ -72,12 +72,4 @@ In this practical we are going to play around with the different types of elemen
 
 ---
 
-16. **Select all boys that are older than 19, but younger than 19.5. How many are there?**
-
----
-
-17. **What is the mean age of boys younger than 15 years of age that do not live in region `north`?**
-
----
-
 End of practical

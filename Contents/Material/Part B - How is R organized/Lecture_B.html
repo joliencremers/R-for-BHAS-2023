@@ -3241,7 +3241,7 @@ slide:not(.current) .plotly.html-widget{
 
 <ul>
 <li>Basic datatypes</li>
-<li>Vectors, matrices, arrays and lists</li>
+<li>Vectors, matrices, data frames, tibbles and lists</li>
 <li>Logical operators</li>
 <li>Factors</li>
 <li>Functions</li>
@@ -3276,11 +3276,10 @@ slide:not(.current) .plotly.html-widget{
 </article></slide><slide class=""><hgroup><h2>Datatypes</h2></hgroup><article  id="datatypes" class="smaller ">
 
 <ul>
-<li>The smallest object in R is called an atomic element.</li>
 <li>Three basic datatypes:
 
 <ul>
-<li>Numeric (double, integer and complex)</li>
+<li>Numeric (e.g. double, integer)</li>
 <li>Character</li>
 <li>Logical</li>
 </ul></li>
@@ -3381,7 +3380,7 @@ no_logic &lt;- FALSE</pre>
 <li>Numeric to logical (<code>FALSE</code> if numeric is <code>0</code> else always <code>TRUE</code>)</li>
 <li>Numeric to character (<code>6.7</code> will become <code>&quot;6.7&quot;</code>)</li>
 </ul></li>
-<li>You can convert convert character to numeric if it <strong>ONLY</strong> contains numbers</li>
+<li>You can convert character to numeric if it <strong>ONLY</strong> contains numbers</li>
 <li>You can convert character to logical <strong>ONLY</strong> if it is <code>&quot;TRUE&quot;</code> or <code>&quot;FALSE&quot;</code></li>
 <li>If R does not know how to convert you get a missing value (<code>NA</code>)</li>
 </ul>
@@ -3497,27 +3496,72 @@ c</pre>
 <p><code>logical</code>-&gt;<code>numeric</code>-&gt;<code>character</code></p></li>
 </ul>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Data frames</h2></hgroup><article  id="data-frames" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Tabular data</h2></hgroup><article  id="tabular-data" class="smaller ">
 
-</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames" class="smaller ">
 
-<p>To keep variables of different types in a 2D structure, the simplest answer is a <strong>data frame</strong></p>
+<p>To keep variables of different types in a 2D structure, the simplest answer is a <strong>data frame</strong>, a data structure from base-R</p>
 
-<pre class = 'prettyprint lang-r'>d &lt;- data.frame(&quot;V1&quot; = rnorm(5),
-                &quot;V2&quot; = rnorm(5, mean = 5, sd = 2), 
-                &quot;V3&quot; = letters[1:5])
+<pre class = 'prettyprint lang-r'>d &lt;- data.frame(&quot;V1&quot; = rnorm(50),
+                &quot;V2&quot; = rnorm(50, mean = 5, sd = 2), 
+                &quot;V3&quot; = letters[1:50])
 d</pre>
 
-<pre >##            V1       V2 V3
-## 1 -0.56047565 8.430130  a
-## 2 -0.23017749 5.921832  b
-## 3  1.55870831 2.469878  c
-## 4  0.07050839 3.626294  d
-## 5  0.12928774 4.108676  e</pre>
+<pre >##             V1        V2   V3
+## 1  -0.56047565 5.5066370    a
+## 2  -0.23017749 4.9429065    b
+## 3   1.55870831 4.9142591    c
+## 4   0.07050839 7.7372046    d
+## 5   0.12928774 4.5484580    e
+## 6   1.71506499 8.0329412    f
+## 7   0.46091621 1.9024944    g
+## 8  -1.26506123 6.1692275    h
+## 9  -0.68685285 5.2477085    i
+## 10 -0.44566197 5.4318831    j
+## 11  1.22408180 5.7592790    k
+## 12  0.35981383 3.9953531    l
+## 13  0.40077145 4.3335852    m
+## 14  0.11068272 2.9628492    n
+## 15 -0.55584113 2.8564175    o
+## 16  1.78691314 5.6070573    p
+## 17  0.49785048 5.8964196    q
+## 18 -1.96661716 5.1060085    r
+## 19  0.70135590 6.8445349    s
+## 20 -0.47279141 9.1001694    t
+## 21 -1.06782371 4.0179377    u
+## 22 -0.21797491 0.3816622    v
+## 23 -1.02600445 7.0114770    w
+## 24 -0.72889123 3.5815985    x
+## 25 -0.62503927 3.6239828    y
+## 26 -1.68669331 7.0511427    z
+## 27  0.83778704 4.4304540 &lt;NA&gt;
+## 28  0.15337312 2.5585646 &lt;NA&gt;
+## 29 -1.13813694 5.3626070 &lt;NA&gt;
+## 30  1.25381492 4.7222173 &lt;NA&gt;
+## 31  0.42646422 5.0115284 &lt;NA&gt;
+## 32 -0.29507148 5.7705608 &lt;NA&gt;
+## 33  0.89512566 4.2586799 &lt;NA&gt;
+## 34  0.87813349 6.2887531 &lt;NA&gt;
+## 35  0.82158108 4.5590269 &lt;NA&gt;
+## 36  0.68864025 5.6635639 &lt;NA&gt;
+## 37  0.55391765 7.1936780 &lt;NA&gt;
+## 38 -0.06191171 5.8703630 &lt;NA&gt;
+## 39 -0.30596266 4.3481368 &lt;NA&gt;
+## 40 -0.38047100 7.2976152 &lt;NA&gt;
+## 41 -0.69470698 6.9870077 &lt;NA&gt;
+## 42 -0.20791728 6.0967939 &lt;NA&gt;
+## 43 -1.26539635 5.4774635 &lt;NA&gt;
+## 44  2.16895597 3.7441878 &lt;NA&gt;
+## 45  1.20796200 7.7213049 &lt;NA&gt;
+## 46 -1.12310858 3.7994808 &lt;NA&gt;
+## 47 -0.40288484 9.3746660 &lt;NA&gt;
+## 48 -0.46665535 8.0652213 &lt;NA&gt;
+## 49  0.77996512 4.5285993 &lt;NA&gt;
+## 50 -0.08336907 2.9471582 &lt;NA&gt;</pre>
 
 <p>Here a data frame is constructed with two randomly generated sets from the normal distribution where \(V1\) is standard normal and \(V2 \sim N(5,2^2)\) and then an interesting character vector</p>
 
-</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-2" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-1" class="smaller ">
 
 <ul>
 <li>Data frames can contain all datatypes</li>
@@ -3525,24 +3569,40 @@ d</pre>
 <li>Each row has the same columns</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-3" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-2" class="smaller ">
 
 <p>The way to obtain the third row from the data frame <code>d</code> is:</p>
 
 <pre class = 'prettyprint lang-r'>d[3, ]</pre>
 
 <pre >##         V1       V2 V3
-## 3 1.558708 2.469878  c</pre>
+## 3 1.558708 4.914259  c</pre>
+
+</article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-3" class="smaller ">
 
 <p>Calling columns in data frames can be done in precisely the same way:</p>
 
 <pre class = 'prettyprint lang-r'>d[, &quot;V2&quot;]</pre>
 
-<pre >## [1] 8.430130 5.921832 2.469878 3.626294 4.108676</pre>
+<pre >##  [1] 5.5066370 4.9429065 4.9142591 7.7372046 4.5484580 8.0329412 1.9024944
+##  [8] 6.1692275 5.2477085 5.4318831 5.7592790 3.9953531 4.3335852 2.9628492
+## [15] 2.8564175 5.6070573 5.8964196 5.1060085 6.8445349 9.1001694 4.0179377
+## [22] 0.3816622 7.0114770 3.5815985 3.6239828 7.0511427 4.4304540 2.5585646
+## [29] 5.3626070 4.7222173 5.0115284 5.7705608 4.2586799 6.2887531 4.5590269
+## [36] 5.6635639 7.1936780 5.8703630 4.3481368 7.2976152 6.9870077 6.0967939
+## [43] 5.4774635 3.7441878 7.7213049 3.7994808 9.3746660 8.0652213 4.5285993
+## [50] 2.9471582</pre>
 
 <pre class = 'prettyprint lang-r'>d[, 2]</pre>
 
-<pre >## [1] 8.430130 5.921832 2.469878 3.626294 4.108676</pre>
+<pre >##  [1] 5.5066370 4.9429065 4.9142591 7.7372046 4.5484580 8.0329412 1.9024944
+##  [8] 6.1692275 5.2477085 5.4318831 5.7592790 3.9953531 4.3335852 2.9628492
+## [15] 2.8564175 5.6070573 5.8964196 5.1060085 6.8445349 9.1001694 4.0179377
+## [22] 0.3816622 7.0114770 3.5815985 3.6239828 7.0511427 4.4304540 2.5585646
+## [29] 5.3626070 4.7222173 5.0115284 5.7705608 4.2586799 6.2887531 4.5590269
+## [36] 5.6635639 7.1936780 5.8703630 4.3481368 7.2976152 6.9870077 6.0967939
+## [43] 5.4774635 3.7441878 7.7213049 3.7994808 9.3746660 8.0652213 4.5285993
+## [50] 2.9471582</pre>
 
 </article></slide><slide class=""><hgroup><h2>Data frames</h2></hgroup><article  id="data-frames-4" class="smaller ">
 
@@ -3550,7 +3610,7 @@ d</pre>
 
 <pre class = 'prettyprint lang-r'>d[3:5,&quot;V2&quot;]</pre>
 
-<pre >## [1] 2.469878 3.626294 4.108676</pre>
+<pre >## [1] 4.914259 7.737205 4.548458</pre>
 
 <p>Notice the <code>3:5</code> notation. In <code>R</code> this is shorthand for the integers from 3 to 5.</p>
 
@@ -3564,81 +3624,77 @@ d</pre>
 
 <pre class = 'prettyprint lang-r'>d$V2</pre>
 
-<pre >## [1] 8.430130 5.921832 2.469878 3.626294 4.108676</pre>
+<pre >##  [1] 5.5066370 4.9429065 4.9142591 7.7372046 4.5484580 8.0329412 1.9024944
+##  [8] 6.1692275 5.2477085 5.4318831 5.7592790 3.9953531 4.3335852 2.9628492
+## [15] 2.8564175 5.6070573 5.8964196 5.1060085 6.8445349 9.1001694 4.0179377
+## [22] 0.3816622 7.0114770 3.5815985 3.6239828 7.0511427 4.4304540 2.5585646
+## [29] 5.3626070 4.7222173 5.0115284 5.7705608 4.2586799 6.2887531 4.5590269
+## [36] 5.6635639 7.1936780 5.8703630 4.3481368 7.2976152 6.9870077 6.0967939
+## [43] 5.4774635 3.7441878 7.7213049 3.7994808 9.3746660 8.0652213 4.5285993
+## [50] 2.9471582</pre>
 
 <p>Thus calling column vectors we can even write:</p>
 
 <pre class = 'prettyprint lang-r'>d$V2[3:4]</pre>
 
-<pre >## [1] 2.469878 3.626294</pre>
+<pre >## [1] 4.914259 7.737205</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Beyond two dimensions:<br>Arrays and lists</h2></hgroup><article  id="beyond-two-dimensions-arrays-and-lists" class="smaller ">
-
-</article></slide><slide class=""><hgroup><h2>Arrays</h2></hgroup><article  id="arrays" class="smaller ">
-
-<p>If you wish to use single datatype objects that have more than two dimensions, an array would be a suitable object.</p>
+</article></slide><slide class=""><hgroup><h2>Tibbles</h2></hgroup><article  id="tibbles" class="smaller ">
 
 <ul>
-<li>The following code yields a 3-dimensional array, which may be thought of as 2 layers of a 3x4 matrix:</li>
+<li>The &lsquo;tidy&rsquo; version of a data.frame (from the <code>tibble</code> package, a part of <code>tidyverse</code>).</li>
+<li>Extension of a <code>data.frame</code></li>
+<li>Prettier &lsquo;prints&rsquo;</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>e &lt;- array(1:24, dim = c(3, 4, 2))
-e</pre>
+</article></slide><slide class=""><hgroup><h2>Tibbles</h2></hgroup><article  id="tibbles-1" class="smaller ">
 
-<pre >## , , 1
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    4    7   10
-## [2,]    2    5    8   11
-## [3,]    3    6    9   12
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]   13   16   19   22
-## [2,]   14   17   20   23
-## [3,]   15   18   21   24</pre>
+<p>This is how you make a tibble:</p>
 
-</article></slide><slide class=""><hgroup><h2>Arrays</h2></hgroup><article  id="arrays-1" class="smaller ">
+<pre class = 'prettyprint lang-r'>tibble(&quot;V1&quot; = rnorm(50),
+       &quot;V2&quot; = rnorm(50, mean = 5, sd = 2), 
+       &quot;V3&quot; = letters[1:50])</pre>
 
-<p>The square bracket identification works similarly to the identification of matrices and dataframes, but with the added dimension(s).</p>
+<pre >## # A tibble: 50 × 3
+##         V1    V2 V3   
+##      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1 -0.710   6.58 a    
+##  2  0.257   6.54 b    
+##  3 -0.247   5.66 c    
+##  4 -0.348   2.98 d    
+##  5 -0.952   4.76 e    
+##  6 -0.0450  4.44 f    
+##  7 -0.785   6.13 g    
+##  8 -1.67    4.26 h    
+##  9 -0.380   6.95 i    
+## 10  0.919   4.25 j    
+## # ℹ 40 more rows</pre>
 
-<ul>
-<li>To get the element in the first row of the third column in the second matrix you type:</li>
-</ul>
+</article></slide><slide class=""><hgroup><h2>Tibbles</h2></hgroup><article  id="tibbles-2" class="smaller ">
 
-<pre class = 'prettyprint lang-r'>e[1, 3, 2]</pre>
+<p>prettier print:</p>
 
-<pre >## [1] 19</pre>
+<pre class = 'prettyprint lang-r'>d |&gt; 
+  as_tibble()</pre>
 
-<ul>
-<li>This is exactly the downside to an array: it is a series of matrices meaning that characters and numerical elements may not be mixed!</li>
-</ul>
+<pre >## # A tibble: 50 × 3
+##         V1    V2 V3   
+##      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1 -0.560   5.51 a    
+##  2 -0.230   4.94 b    
+##  3  1.56    4.91 c    
+##  4  0.0705  7.74 d    
+##  5  0.129   4.55 e    
+##  6  1.72    8.03 f    
+##  7  0.461   1.90 g    
+##  8 -1.27    6.17 h    
+##  9 -0.687   5.25 i    
+## 10 -0.446   5.43 j    
+## # ℹ 40 more rows</pre>
 
-</article></slide><slide class=""><hgroup><h2>Arrays</h2></hgroup><article  id="arrays-2" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Lists</h2></hgroup><article  id="lists" class="smaller ">
 
-<p>We get problems if we replace the second matrix in the array by a character version of that same matrix:</p>
-
-<pre class = 'prettyprint lang-r'>e[, , 2] &lt;- as.character(e[, , 2])
-e</pre>
-
-<pre >## , , 1
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,] &quot;1&quot;  &quot;4&quot;  &quot;7&quot;  &quot;10&quot;
-## [2,] &quot;2&quot;  &quot;5&quot;  &quot;8&quot;  &quot;11&quot;
-## [3,] &quot;3&quot;  &quot;6&quot;  &quot;9&quot;  &quot;12&quot;
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,] &quot;13&quot; &quot;16&quot; &quot;19&quot; &quot;22&quot;
-## [2,] &quot;14&quot; &quot;17&quot; &quot;20&quot; &quot;23&quot;
-## [3,] &quot;15&quot; &quot;18&quot; &quot;21&quot; &quot;24&quot;</pre>
-
-<p>As for matrices the entire array is cast to chars!</p>
-
-</article></slide><slide class=""><hgroup><h2>The solution: Lists</h2></hgroup><article  id="the-solution-lists" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Lists</h2></hgroup><article  id="lists-1" class="smaller ">
 
 <p>List are just what it says they are (i.e. lists), and you can have a list where the elements are of different types.</p>
 
@@ -3669,12 +3725,57 @@ f</pre>
 ## [1] 1 2 3 4 5
 ## 
 ## [[2]]
-##            V1       V2 V3
-## 1 -0.56047565 8.430130  a
-## 2 -0.23017749 5.921832  b
-## 3  1.55870831 2.469878  c
-## 4  0.07050839 3.626294  d
-## 5  0.12928774 4.108676  e</pre>
+##             V1        V2   V3
+## 1  -0.56047565 5.5066370    a
+## 2  -0.23017749 4.9429065    b
+## 3   1.55870831 4.9142591    c
+## 4   0.07050839 7.7372046    d
+## 5   0.12928774 4.5484580    e
+## 6   1.71506499 8.0329412    f
+## 7   0.46091621 1.9024944    g
+## 8  -1.26506123 6.1692275    h
+## 9  -0.68685285 5.2477085    i
+## 10 -0.44566197 5.4318831    j
+## 11  1.22408180 5.7592790    k
+## 12  0.35981383 3.9953531    l
+## 13  0.40077145 4.3335852    m
+## 14  0.11068272 2.9628492    n
+## 15 -0.55584113 2.8564175    o
+## 16  1.78691314 5.6070573    p
+## 17  0.49785048 5.8964196    q
+## 18 -1.96661716 5.1060085    r
+## 19  0.70135590 6.8445349    s
+## 20 -0.47279141 9.1001694    t
+## 21 -1.06782371 4.0179377    u
+## 22 -0.21797491 0.3816622    v
+## 23 -1.02600445 7.0114770    w
+## 24 -0.72889123 3.5815985    x
+## 25 -0.62503927 3.6239828    y
+## 26 -1.68669331 7.0511427    z
+## 27  0.83778704 4.4304540 &lt;NA&gt;
+## 28  0.15337312 2.5585646 &lt;NA&gt;
+## 29 -1.13813694 5.3626070 &lt;NA&gt;
+## 30  1.25381492 4.7222173 &lt;NA&gt;
+## 31  0.42646422 5.0115284 &lt;NA&gt;
+## 32 -0.29507148 5.7705608 &lt;NA&gt;
+## 33  0.89512566 4.2586799 &lt;NA&gt;
+## 34  0.87813349 6.2887531 &lt;NA&gt;
+## 35  0.82158108 4.5590269 &lt;NA&gt;
+## 36  0.68864025 5.6635639 &lt;NA&gt;
+## 37  0.55391765 7.1936780 &lt;NA&gt;
+## 38 -0.06191171 5.8703630 &lt;NA&gt;
+## 39 -0.30596266 4.3481368 &lt;NA&gt;
+## 40 -0.38047100 7.2976152 &lt;NA&gt;
+## 41 -0.69470698 6.9870077 &lt;NA&gt;
+## 42 -0.20791728 6.0967939 &lt;NA&gt;
+## 43 -1.26539635 5.4774635 &lt;NA&gt;
+## 44  2.16895597 3.7441878 &lt;NA&gt;
+## 45  1.20796200 7.7213049 &lt;NA&gt;
+## 46 -1.12310858 3.7994808 &lt;NA&gt;
+## 47 -0.40288484 9.3746660 &lt;NA&gt;
+## 48 -0.46665535 8.0652213 &lt;NA&gt;
+## 49  0.77996512 4.5285993 &lt;NA&gt;
+## 50 -0.08336907 2.9471582 &lt;NA&gt;</pre>
 
 <p>Now our list consists of a vector and a data frame!</p>
 
@@ -3689,12 +3790,57 @@ f</pre>
 ## [1] 1 2 3 4 5
 ## 
 ## $`data frame`
-##            V1       V2 V3
-## 1 -0.56047565 8.430130  a
-## 2 -0.23017749 5.921832  b
-## 3  1.55870831 2.469878  c
-## 4  0.07050839 3.626294  d
-## 5  0.12928774 4.108676  e</pre>
+##             V1        V2   V3
+## 1  -0.56047565 5.5066370    a
+## 2  -0.23017749 4.9429065    b
+## 3   1.55870831 4.9142591    c
+## 4   0.07050839 7.7372046    d
+## 5   0.12928774 4.5484580    e
+## 6   1.71506499 8.0329412    f
+## 7   0.46091621 1.9024944    g
+## 8  -1.26506123 6.1692275    h
+## 9  -0.68685285 5.2477085    i
+## 10 -0.44566197 5.4318831    j
+## 11  1.22408180 5.7592790    k
+## 12  0.35981383 3.9953531    l
+## 13  0.40077145 4.3335852    m
+## 14  0.11068272 2.9628492    n
+## 15 -0.55584113 2.8564175    o
+## 16  1.78691314 5.6070573    p
+## 17  0.49785048 5.8964196    q
+## 18 -1.96661716 5.1060085    r
+## 19  0.70135590 6.8445349    s
+## 20 -0.47279141 9.1001694    t
+## 21 -1.06782371 4.0179377    u
+## 22 -0.21797491 0.3816622    v
+## 23 -1.02600445 7.0114770    w
+## 24 -0.72889123 3.5815985    x
+## 25 -0.62503927 3.6239828    y
+## 26 -1.68669331 7.0511427    z
+## 27  0.83778704 4.4304540 &lt;NA&gt;
+## 28  0.15337312 2.5585646 &lt;NA&gt;
+## 29 -1.13813694 5.3626070 &lt;NA&gt;
+## 30  1.25381492 4.7222173 &lt;NA&gt;
+## 31  0.42646422 5.0115284 &lt;NA&gt;
+## 32 -0.29507148 5.7705608 &lt;NA&gt;
+## 33  0.89512566 4.2586799 &lt;NA&gt;
+## 34  0.87813349 6.2887531 &lt;NA&gt;
+## 35  0.82158108 4.5590269 &lt;NA&gt;
+## 36  0.68864025 5.6635639 &lt;NA&gt;
+## 37  0.55391765 7.1936780 &lt;NA&gt;
+## 38 -0.06191171 5.8703630 &lt;NA&gt;
+## 39 -0.30596266 4.3481368 &lt;NA&gt;
+## 40 -0.38047100 7.2976152 &lt;NA&gt;
+## 41 -0.69470698 6.9870077 &lt;NA&gt;
+## 42 -0.20791728 6.0967939 &lt;NA&gt;
+## 43 -1.26539635 5.4774635 &lt;NA&gt;
+## 44  2.16895597 3.7441878 &lt;NA&gt;
+## 45  1.20796200 7.7213049 &lt;NA&gt;
+## 46 -1.12310858 3.7994808 &lt;NA&gt;
+## 47 -0.40288484 9.3746660 &lt;NA&gt;
+## 48 -0.46665535 8.0652213 &lt;NA&gt;
+## 49  0.77996512 4.5285993 &lt;NA&gt;
+## 50 -0.08336907 2.9471582 &lt;NA&gt;</pre>
 
 </article></slide><slide class=""><hgroup><h2>List</h2></hgroup><article  id="list-2" class="smaller ">
 
@@ -3825,7 +3971,7 @@ f</pre>
 
 </article></slide><slide class=""><hgroup><h2>Factor</h2></hgroup><article  id="factor-1" class="smaller ">
 
-<p>Can be useful for categoricals:</p>
+<p>Can be useful for categorical variables:</p>
 
 <pre class = 'prettyprint lang-r'>fruits &lt;- factor(c(&quot;Apple&quot;, &quot;Potato&quot;),
                  levels = c(&quot;Apple&quot;, &quot;Banana&quot;))
@@ -3833,63 +3979,6 @@ fruits</pre>
 
 <pre >## [1] Apple &lt;NA&gt; 
 ## Levels: Apple Banana</pre>
-
-</article></slide><slide class=""><hgroup><h2>Beware of factors - they are not what they seem!</h2></hgroup><article  id="beware-of-factors---they-are-not-what-they-seem" class="smaller ">
-
-<p>Consider a data frame A:</p>
-
-<pre >##   V1 V2
-## 1  1  4
-## 2  2  3
-## 3  3  2
-## 4  4  1</pre>
-
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-1" class="smaller ">
-
-<p>We can try to add elements of A:</p>
-
-<pre class = 'prettyprint lang-r'>A[2,1] + A[2,2]</pre>
-
-<pre >## Warning in Ops.factor(A[2, 1], A[2, 2]): &#39;+&#39; not meaningful for factors</pre>
-
-<pre >## [1] NA</pre>
-
-<p>But it seems logical enough to add them!</p>
-
-<pre class = 'prettyprint lang-r'>typeof(A[2,1]) </pre>
-
-<pre >## [1] &quot;integer&quot;</pre>
-
-<pre class = 'prettyprint lang-r'>typeof(A[2,2])</pre>
-
-<pre >## [1] &quot;integer&quot;</pre>
-
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-2" class="smaller ">
-
-<p>Something weird is going on here!</p>
-
-<pre class = 'prettyprint lang-r'>A[2,1] </pre>
-
-<pre >## [1] 2
-## Levels: 1 2 3 4</pre>
-
-<pre class = 'prettyprint lang-r'>A[2,2]</pre>
-
-<pre >## [1] 3
-## Levels: 1 2 3 4</pre>
-
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-3" class="smaller ">
-
-<p>The problem is caused by the elements of A being factors.</p>
-
-<pre class = 'prettyprint lang-r'>A[2,2]</pre>
-
-<pre >## [1] 3
-## Levels: 1 2 3 4</pre>
-
-<p>It’s the keyword <code>Levels</code> that tells us that A is in fact a dataframe of factors.</p>
-
-<p>Factors do cause a lot of trouble for this exact reason. So when you troubleshoot, check if your elements actually have the type that you think they have!</p>
 
 </article></slide><slide class=""><hgroup><h2>Factors in R</h2></hgroup><article  id="factors-in-r" class="smaller ">
 
@@ -3899,15 +3988,11 @@ fruits</pre>
 <ul>
 <li>This is not as big a problem as it used to be, but it is still a good idea to check</li>
 </ul></li>
-<li><p>Strings are sometimes converted to factors automatically (unless you use a data structure called a tibble).</p></li>
+<li><p>Strings are sometimes converted to factors automatically (unless you use tibbles).</p></li>
 <li><p>Sometimes we have to do it ourselves (if we want the data to be factors).</p></li>
 <li><p>You can make an element into a factor by using the function ´as.factor()´</p></li>
-<li><p>If you want something not to be a factor, you have to convert it back to the type of element you need it to be:</p></li>
+<li><p>If you want something not to be a factor, you have to convert it back to the type of element you need it to be.</p></li>
 </ul>
-
-<pre class = 'prettyprint lang-r'>as.integer(A[2,1]) + as.integer(A[2,2])</pre>
-
-<pre >## [1] 5</pre>
 
 </article></slide><slide class=""><hgroup><h2>Then why use factors?</h2></hgroup><article  id="then-why-use-factors" class="smaller ">
 

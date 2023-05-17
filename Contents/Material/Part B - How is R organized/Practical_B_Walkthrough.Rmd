@@ -208,7 +208,7 @@ Note that `bmi` contains 21 missing values, e.g. by looking at the summary infor
 
 15. **Select all boys that are 20 years or older. How many are there?**
 
-The logical operators (TRUE vs FALSE) are a very powerful tool in `R`. For example, we can just select the rows (respondents) in the data that are older than 20 by putting the logical operater within the row index of the dataset:
+The logical operators (TRUE vs FALSE) are a very powerful tool in `R`. For example, we can just select the rows (respondents) in the data that are older than 20 by putting the logical operator within the row index of the dataset:
 ```{r}
 boys2 <- boys[boys$age >= 20, ]
 nrow(boys2)
@@ -219,41 +219,6 @@ or, alternatively,
 boys2.1 <- subset(boys, age >= 20)
 nrow(boys2.1)
 ```
-
----
-
-16. **Select all boys that are older than 19, but younger than 19.5. How many are there?**
-```{r}
-boys3 <- boys[boys$age > 19 & boys$age < 19.5, ]
-nrow(boys3)
-```
-
-or, alternatively, 
-```{r}
-boys3.2 <- subset(boys, age > 19 & age < 19.5)
-nrow(boys3.2)
-```
-
----
-
-17. **What is the mean age of boys younger than 15 years of age that do not live in region `north`?**
-
-```{r}
-mean(boys$age[boys$age < 15 & boys$reg != "north" ], na.rm = TRUE)
-```
-
-or, alternatively, 
-```{r}
-mean(subset(boys, age < 15 & reg != "north")$age, na.rm=TRUE)
-```
-
-The mean age is `r mean(boys$age[boys$age < 15 & boys$reg != "north" ], na.rm = TRUE)` years
-
---- 
-
-Today we have learned to use `R` at its basics. This offers tremendous flexibility, but may also be inefficient when our aim is some complex analysis, data operation of data manipulation. Doing advanced operations in basic `R` may require lots and lots of code. Tomorrow we will start using packages that allow us to do complicated operations with just a few lines of code. 
-
-As you start using `R` in your own research, you will find yourself in need of packages that are not part of the default `R` installation. The beauty of `R` is that its functionality is community-driven. People can add packages to `CRAN` that other people can use and improve. Chances are that a function and/or package has been already developed for the analysis or operation you plan to carry out. If not, you are of course welcome to fill the gap by submitting your own package. 
 
 ---
 
