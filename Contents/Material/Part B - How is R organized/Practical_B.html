@@ -11,7 +11,7 @@
 
 
 
-<title>Practical B</title>
+<title>Exercises for datatypes and syntax</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -252,6 +252,64 @@ if (window.hljs) {
 
 
 
+<style type="text/css">:root {
+--pink: #983E82; 
+--orange: #E2A458; 
+--yellow: #F5DC70; 
+--green: #59935B; 
+--blue: #467AAC; 
+--purple: #61589C; 
+}
+
+.webex-incorrect,
+.webex-radiogroup label.webex-incorrect{
+border: 2px dotted var(--pink);
+background-color: #edaddd;
+border-radius: 0.25em;
+}
+.webex-correct,
+.webex-radiogroup label.webex-correct {
+border: 2px solid var(--green);
+background-color: #c0edc2;
+border-radius: 0.25em;
+}
+
+.webex-solution {
+height: 2.5em;
+overflow-y: hidden;
+padding: 0.5em;
+margin-bottom: 10px;
+}
+.webex-solution.open {
+height: auto;
+border: 2px solid var(--blue);
+border-radius: 5px;
+}
+.webex-solution button {
+height: 2em;
+margin-bottom: 0.5em;
+border-radius: 0.5em;
+background-color: var(--blue);
+color: white;
+padding: 0 0.5em;
+}
+.webex-solution pre.sourceCode {
+border-color: var(--green);
+}
+.webex-radiogroup label {
+margin-left: 2em;
+text-indent: -1em;
+padding-left: 0.5em;
+font-weight: 400;
+display: block;
+border: 2px solid rgba(255, 255, 255, 1);
+border-radius: 0.25em;
+}
+.webex-radiogroup label input {
+position: relative;
+left: -1em;
+}
+</style>
 
 
 
@@ -354,119 +412,646 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Practical B</h1>
-<h4 class="date">Datatypes and syntax</h4>
+<h1 class="title toc-ignore">Exercises for datatypes and syntax</h1>
 
 </div>
 
 
-<hr />
-<div id="exercises" class="section level4">
-<h4>Exercises</h4>
+<div id="introduction" class="section level2">
+<h2>1. Introduction</h2>
 <p>In this practical we are going to play around with the different
 types of elements in R.</p>
-<hr />
-<ol style="list-style-type: decimal">
-<li><strong>Make two vectors: one named <code>vec1</code> with values 1
-through 6 and one named <code>vec2</code> with letters A through F.
-</strong></li>
-</ol>
-<hr />
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Create two matrices, one from <code>vec1</code> and one from
+</div>
+<div id="vectors-and-matrices" class="section level2">
+<h2>2. Vectors and Matrices</h2>
+<div id="exercise-2.1" class="section level3">
+<h3>Exercise 2.1</h3>
+<p>Make two vectors: one named <code>vec1</code> with values 1 through 6
+and one named <code>vec2</code> with letters A through F.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>To create a vector we used <code>c()</code>, which stands for
+&#39;concatenation&#39;.</p>
+</div>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>vec1 &lt;- c(1, 2, 3, 4, 5, 6)
+vec2 &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;)</code></pre>
+<p>It is just a series of numbers or letters.</p>
+</div>
+</div>
+<div id="exercise-2.2" class="section level3">
+<h3>Exercise 2.2</h3>
+<p>Create two matrices, one from <code>vec1</code> and one from
 <code>vec2</code>. The dimensions for both matrices are 3 rows by 2
-columns. </strong></li>
-</ol>
-<hr />
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Inspect your vectors and matrices. Are all
-numerical?</strong></li>
-</ol>
-<hr />
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Make a matrix from both <code>vec1</code> and
-<code>vec2</code> with 6 rows and 2 columns. Inspect this
-matrix.</strong></li>
-</ol>
-<hr />
-<ol start="5" style="list-style-type: decimal">
-<li><strong>Make a dataframe called <code>dat3</code> where
-<code>vec1</code> and <code>vec2</code> are both columns. Name the
-columns <code>V1</code> and <code>V2</code>, respectively. Use function
-<code>data.frame()</code>.</strong></li>
-</ol>
-<hr />
-<ol start="6" style="list-style-type: decimal">
-<li><strong>Again, make a dataframe called <code>dat3b</code> where
+columns</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>To create a matrix use <code>matrix()</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>mat1 &lt;- matrix(vec1, nrow = 3, ncol = 2)
+mat2 &lt;- matrix(vec2, nrow = 3, ncol = 2)</code></pre>
+<p>To create a matrix we used <code>matrix()</code>. For a matrix we
+need to specify the dimensions (in this case 3 rows and 2 columns) and
+the input (in this case <code>vec1</code> or <code>vec2</code>) needs to
+match these dimensions.</p>
+</div>
+</div>
+<div id="exercise-2.3" class="section level3">
+<h3>Exercise 2.3</h3>
+<p>Inspect your vectors and matrices. Are all numerical?</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>vec1</code></pre>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<pre class="r"><code>vec2</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<pre class="r"><code>mat1</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<pre class="r"><code>mat2</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;A&quot;  &quot;D&quot; 
+## [2,] &quot;B&quot;  &quot;E&quot; 
+## [3,] &quot;C&quot;  &quot;F&quot;</code></pre>
+<p><code>vec1</code> and <code>mat1</code> contain numbers and
+<code>vec2</code> and <code>mat2</code> contain characters.</p>
+</div>
+</div>
+<div id="exercise-2.4" class="section level3">
+<h3>Exercise 2.4</h3>
+<p>Make a matrix from both <code>vec1</code> and <code>vec2</code> with
+6 rows and 2 columns. Inspect this matrix.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>mat3 &lt;- matrix(c(vec1, vec2), 6, 2)
+mat3</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;1&quot;  &quot;A&quot; 
+## [2,] &quot;2&quot;  &quot;B&quot; 
+## [3,] &quot;3&quot;  &quot;C&quot; 
+## [4,] &quot;4&quot;  &quot;D&quot; 
+## [5,] &quot;5&quot;  &quot;E&quot; 
+## [6,] &quot;6&quot;  &quot;F&quot;</code></pre>
+<p>or</p>
+<pre class="r"><code>mat3b &lt;- cbind(vec1, vec2)
+is.matrix(mat3b)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>mat3b</code></pre>
+<pre><code>##      vec1 vec2
+## [1,] &quot;1&quot;  &quot;A&quot; 
+## [2,] &quot;2&quot;  &quot;B&quot; 
+## [3,] &quot;3&quot;  &quot;C&quot; 
+## [4,] &quot;4&quot;  &quot;D&quot; 
+## [5,] &quot;5&quot;  &quot;E&quot; 
+## [6,] &quot;6&quot;  &quot;F&quot;</code></pre>
+<p>If one or more elements in the matrix represent characters, all other
+elements are also converted to characters. A matrix is just for either
+numeric or character elements. Notice that the second approach (the
+column bind approach from <code>mat3b</code>) returns a matrix where the
+column names are already set to the name of the bound objects.</p>
+<p>To solve the problem of charactered numbers we can create a
+dataframe. A dataframe is essentially a matrix that allows for character
+elements. The use of a dataframe is often preferred over the use of a
+matrix in <code>R</code>, except for purposes where pure numerical
+calculations are done, such as in matrix algebra. However, most datasets
+do contain character information and a dataframe would normally be your
+preferred choice when working with your own collected datasets in R.</p>
+</div>
+</div>
+</div>
+<div id="dataframes" class="section level2">
+<h2>3. Dataframes</h2>
+<div id="exercise-3.1" class="section level3">
+<h3>Exercise 3.1</h3>
+<p>Make a dataframe called <code>dat3</code> where <code>vec1</code> and
+<code>vec2</code> are both columns. Name the columns <code>V1</code> and
+<code>V2</code>, respectively.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Use the function <code>data.frame()</code></p>
+</div>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>dat3 &lt;- data.frame(V1 = vec1, V2 = vec2)
+dat3</code></pre>
+<pre><code>##   V1 V2
+## 1  1  A
+## 2  2  B
+## 3  3  C
+## 4  4  D
+## 5  5  E
+## 6  6  F</code></pre>
+</div>
+</div>
+<div id="exercise-3.2" class="section level3">
+<h3>Exercise 3.2</h3>
+<p>Again, make a dataframe called <code>dat3b</code> where
 <code>vec1</code> and <code>vec2</code> are both columns. Name the
 columns <code>V1</code> and <code>V2</code>, respectively. Use function
 <code>as.data.frame()</code> on the matrix obtained from
-<code>Question 4</code>. </strong></li>
-</ol>
-<hr />
-<ol start="7" style="list-style-type: decimal">
-<li><strong>Check if the first column in the data frames from Question 5
-and Question 6 are indeed numeric. If not, determine what they are.
-</strong></li>
-</ol>
-<hr />
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Select 1) the third row, 2) the second column and 3) the
-intersection of these two in the dataframe <code>dat3</code> that you
-have created in Question 4. </strong></li>
-</ol>
-<hr />
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Imagine that the first variable <code>V1</code> in our
-dataframe <code>dat3</code> is not coded correctly, but actually
-represents grouping information about cities. Convert the variable to a
-factor and add the labels Utrecht, New York, London, Singapore, Rome and
-Cape Town.</strong></li>
-</ol>
-<hr />
-<ol start="10" style="list-style-type: decimal">
-<li><strong>Open the dataset <code>boys.RData</code>. You need to
-download this file and put it in the project folder.</strong></li>
-</ol>
-<hr />
-<ol start="11" style="list-style-type: decimal">
-<li><strong>Most packages have datasets included. Since we have not
-learned to load packages yet, you are presented with such a dataset in a
+<code>Question 4</code>.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>This is a tricky situation. At face value, everything may seem to be
+in order. But, be aware that the code</p>
+<pre class="r"><code>dat3b &lt;- as.data.frame(mat3)
+dat3b</code></pre>
+<pre><code>##   V1 V2
+## 1  1  A
+## 2  2  B
+## 3  3  C
+## 4  4  D
+## 5  5  E
+## 6  6  F</code></pre>
+<p>does not work properly (at least not as intended) as the matrix
+nature of <code>mat3</code> turned everything into a character value and
+you have lost the numerical nature of <code>vec1</code>. It may appear
+to be working, but if we check if column 1 is numerical, it turns out
+not to be the case.</p>
+</div>
+</div>
+<div id="exercise-3.3" class="section level3">
+<h3>Exercise 3.3</h3>
+<p>Check if the first column in the data frames from Question 5 and
+Question 6 are indeed numeric. If not, determine what they are.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>is.numeric(dat3[, 1])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.numeric(dat3b[, 1])</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>The first column in matrix <code>dat3b</code> obtained from Question
+5 is indeed not numeric. As a matter of fact, it is also not a character
+variable.</p>
+<pre class="r"><code>is.character(dat3b[, 1])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Rather tricky; the function <code>as.data.frame()</code> has
+converted the first variable to a factor.</p>
+<pre class="r"><code>is.factor(dat3b[, 1])</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>This is due to us not specifying the variable correctly in the matrix
+we used to create the dataframe. Factors are categorical variables that
+are depicted by numbers. Character vectors are converted to factors in
+data frames.</p>
+</div>
+</div>
+<div id="exercise-3.4" class="section level3">
+<h3>Exercise 3.4</h3>
+<p>Select 1) the third row, 2) the second column and 3) the intersection
+of these two in the dataframe <code>dat3</code> that you have created in
+Question 4.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>dat3[3, ] #3rd row</code></pre>
+<pre><code>##   V1 V2
+## 3  3  C</code></pre>
+<pre class="r"><code>dat3[, 2] #2nd column</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<pre class="r"><code>dat3$V2   #also 2nd column</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<pre class="r"><code>dat3[3,2] #intersection</code></pre>
+<pre><code>## [1] &quot;C&quot;</code></pre>
+<p>The <code>[3,2]</code> index is very useful in &#39;R&#39;. The first number
+(before the comma) represents the row and the second number (after the
+comma) represents the column. For a vector there are no two dimensions
+and only one dimension can be called. For example, <code>vec1[3]</code>
+would yield <code>3</code>. Try it.</p>
+<p>Columns can also be called by the <code>$</code> sign, but only if a
+name has been assigned. With dataframes assigning names happens
+automatically.</p>
+<p>Note that <code>R</code> automatically reports the values the
+character column can take. This means that the column is indeed a factor
+(a categorical variable - as it is supposed to be). A useful function to
+inspect the structure of a dataframe is <code>str()</code>. Try running
+it.</p>
+<pre class="r"><code>str(dat3)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ V1: num  1 2 3 4 5 6
+##  $ V2: chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...</code></pre>
+<p>Inspecting the structure of your data is vital, as you probably have
+imported your data from some other source. If we, at a later stage,
+start analyzing our data without the correct measurement level, we may
+run into problems. One problem that often occurs is that categorical
+variables (factors in <code>R</code>) are not coded as such.</p>
+</div>
+</div>
+<div id="exercise-3.5" class="section level3">
+<h3>Exercise 3.5</h3>
+<p>Imagine that the first variable <code>V1</code> in our dataframe
+<code>dat3</code> is not coded correctly, but actually represents
+grouping information about cities. Convert the variable to a factor and
+add the labels Utrecht, New York, London, Singapore, Rome and Cape
+Town.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>dat3$V1 &lt;- factor(dat3$V1,
+                  levels = dat3$V1,
+                  labels = c(&quot;Utrecht&quot;, &quot;New York&quot;, &quot;London&quot;, &quot;Singapore&quot;, &quot;Rome&quot;, &quot;Capetown&quot;))
+dat3</code></pre>
+<pre><code>##          V1 V2
+## 1   Utrecht  A
+## 2  New York  B
+## 3    London  C
+## 4 Singapore  D
+## 5      Rome  E
+## 6  Capetown  F</code></pre>
+</div>
+</div>
+</div>
+<div id="dataframes-extra-exercises" class="section level2">
+<h2>4. Dataframes extra exercises</h2>
+<div id="exercise-4.1" class="section level3">
+<h3>Exercise 4.1</h3>
+<p>Open the dataset <code>boys.RData</code>. You need to download this
+file and put it in the project folder.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>Either run the below code</p>
+<pre class="r"><code>load(&quot;boys.RData&quot;)</code></pre>
+<p>or double-click the <code>boys.RData</code> file on your machine
+(right-click and <code>open with RStudio</code> if it does not open by
+default in <code>RStudio</code>, but in <code>R</code>).</p>
+<p>The <code>boys</code> object will be added to your Global
+Environment. You can now use the <code>boys</code> data by running</p>
+<pre class="r"><code>boys</code></pre>
+</div>
+</div>
+<div id="exercise-4.2" class="section level3">
+<h3>Exercise 4.2</h3>
+<p>Most packages have datasets included. Since we have not learned to
+load packages yet, you are presented with such a data set in a
 workspace. Open the <code>boys</code> dataset (it is from package
 <code>mice</code>, by the way) by typing <code>boys</code> in the
 console, and subsequently by using the function <code>View()</code>.
-</strong> Tip: To understand the numbers you are looking at look at the
-documentation by typing <code>?mice::boys</code></li>
-</ol>
+Tip: To understand the numbers you are looking at look at the
+documentation by typing <code>?mice::boys</code></p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>The output is not displayed here as it is simply too large.</p>
+<p>Using <code>View()</code> is preferred for inspecting datasets that
+are large. <code>View()</code> opens the dataset in a spreadsheet-like
+window (conform MS Excel, or SPSS). If you <code>View()</code> your own
+datasets, you can not edit the datasets&#39; contents.</p>
+</div>
+</div>
+<div id="exercise-4.3" class="section level3">
+<h3>Exercise 4.3</h3>
+<p>Find out the dimensions of the <code>boys</code> data set and inspect
+the first and final 6 cases in the data set.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>To do it numerically, find out what the dimensions of the boys
+dataset are.</p>
+<pre class="r"><code>dim(boys)</code></pre>
+<pre><code>## [1] 748   9</code></pre>
+<p>There are 748 cases on 9 variables. To select the first and last six
+cases, use</p>
+<pre class="r"><code>boys[1:6, ]</code></pre>
+<pre><code>##      age  hgt   wgt   bmi   hc  gen  phb tv   reg
+## 3  0.035 50.1 3.650 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 4  0.038 53.5 3.370 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
+## 18 0.057 50.0 3.140 12.56 35.2 &lt;NA&gt; &lt;NA&gt; NA south
+## 23 0.060 54.5 4.270 14.37 36.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 28 0.062 57.5 5.030 15.21 37.3 &lt;NA&gt; &lt;NA&gt; NA south
+## 36 0.068 55.5 4.655 15.11 37.0 &lt;NA&gt; &lt;NA&gt; NA south</code></pre>
+<pre class="r"><code>boys[743:748, ]</code></pre>
+<pre><code>##         age   hgt  wgt   bmi   hc  gen  phb tv   reg
+## 7410 20.372 188.7 59.8 16.79 55.2 &lt;NA&gt; &lt;NA&gt; NA  west
+## 7418 20.429 181.1 67.2 20.48 56.6 &lt;NA&gt; &lt;NA&gt; NA north
+## 7444 20.761 189.1 88.0 24.60   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7447 20.780 193.5 75.4 20.13   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7451 20.813 189.0 78.0 21.83 59.9 &lt;NA&gt; &lt;NA&gt; NA north
+## 7475 21.177 181.8 76.5 23.14   NA &lt;NA&gt; &lt;NA&gt; NA  east</code></pre>
+<p>or, more efficiently:</p>
+<pre class="r"><code>head(boys)</code></pre>
+<pre><code>##      age  hgt   wgt   bmi   hc  gen  phb tv   reg
+## 3  0.035 50.1 3.650 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 4  0.038 53.5 3.370 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
+## 18 0.057 50.0 3.140 12.56 35.2 &lt;NA&gt; &lt;NA&gt; NA south
+## 23 0.060 54.5 4.270 14.37 36.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 28 0.062 57.5 5.030 15.21 37.3 &lt;NA&gt; &lt;NA&gt; NA south
+## 36 0.068 55.5 4.655 15.11 37.0 &lt;NA&gt; &lt;NA&gt; NA south</code></pre>
+<pre class="r"><code>tail(boys)</code></pre>
+<pre><code>##         age   hgt  wgt   bmi   hc  gen  phb tv   reg
+## 7410 20.372 188.7 59.8 16.79 55.2 &lt;NA&gt; &lt;NA&gt; NA  west
+## 7418 20.429 181.1 67.2 20.48 56.6 &lt;NA&gt; &lt;NA&gt; NA north
+## 7444 20.761 189.1 88.0 24.60   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7447 20.780 193.5 75.4 20.13   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7451 20.813 189.0 78.0 21.83 59.9 &lt;NA&gt; &lt;NA&gt; NA north
+## 7475 21.177 181.8 76.5 23.14   NA &lt;NA&gt; &lt;NA&gt; NA  east</code></pre>
+<p>The functions <code>head()</code> and <code>tail()</code> are very
+useful functions. For example, from looking at both functions we can
+observe that the data are very likely sorted based on
+<code>age</code>.</p>
+</div>
+</div>
+<div id="exercise-4.4" class="section level3">
+<h3>Exercise 4.4</h3>
+<p>It seems that the <code>boys</code> data are sorted based on
+<code>age</code>. Verify this.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>To verify if the data are indeed sorted, we can run the following
+command to test the complement of that statement. Remember that we can
+always search the help for functions: e.g. we could have searched here
+for <code>?sort</code> and we would quickly have ended up at function
+<code>is.unsorted()</code> as it tests whether an object is <strong>not
+sorted</strong>.</p>
+<pre class="r"><code>is.unsorted(boys$age)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>which returns <code>FALSE</code>, indicating that boys&#39; age is indeed
+sorted (we asked if it was unsorted!). To directly test if it is sorted,
+we could have used</p>
+<pre class="r"><code>!is.unsorted(boys$age)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>which tests if data data are not unsorted. In other words the values
+<code>TRUE</code> and <code>FALSE</code> under
+<code>is.unsorted()</code> turn into <code>FALSE</code> and
+<code>TRUE</code> under <code>!is.unsorted()</code>, respectively.</p>
+</div>
 <hr />
-<ol start="12" style="list-style-type: decimal">
-<li><strong>Find out the dimensions of the <code>boys</code> data set
-and inspect the first and final 6 cases in the data set. </strong></li>
-</ol>
+</div>
+<div id="exercise-4.5" class="section level3">
+<h3>Exercise 4.5</h3>
+<p>Inspect the <code>boys</code> dataset with <code>str()</code>. Use
+one or more functions to find distributional summary information (at
+least information about the minimum, the maximum, the mean and the
+median) for all of the variables. Give the standard deviation for
+<code>age</code> and <code>bmi</code>. ** Tip: make use of the help (?)
+and help search (??) functionality in <code>R</code>.</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<pre class="r"><code>str(boys)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    748 obs. of  9 variables:
+##  $ age: num  0.035 0.038 0.057 0.06 0.062 0.068 0.068 0.071 0.071 0.073 ...
+##  $ hgt: num  50.1 53.5 50 54.5 57.5 55.5 52.5 53 55.1 54.5 ...
+##  $ wgt: num  3.65 3.37 3.14 4.27 5.03 ...
+##  $ bmi: num  14.5 11.8 12.6 14.4 15.2 ...
+##  $ hc : num  33.7 35 35.2 36.7 37.3 37 34.9 35.8 36.8 38 ...
+##  $ gen: Ord.factor w/ 5 levels &quot;G1&quot;&lt;&quot;G2&quot;&lt;&quot;G3&quot;&lt;..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ phb: Ord.factor w/ 6 levels &quot;P1&quot;&lt;&quot;P2&quot;&lt;&quot;P3&quot;&lt;..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ tv : int  NA NA NA NA NA NA NA NA NA NA ...
+##  $ reg: Factor w/ 5 levels &quot;north&quot;,&quot;east&quot;,..: 4 4 4 4 4 4 4 3 3 2 ...</code></pre>
+<pre class="r"><code>summary(boys) #summary info</code></pre>
+<pre><code>##       age              hgt              wgt              bmi       
+##  Min.   : 0.035   Min.   : 50.00   Min.   :  3.14   Min.   :11.77  
+##  1st Qu.: 1.581   1st Qu.: 84.88   1st Qu.: 11.70   1st Qu.:15.90  
+##  Median :10.505   Median :147.30   Median : 34.65   Median :17.45  
+##  Mean   : 9.159   Mean   :132.15   Mean   : 37.15   Mean   :18.07  
+##  3rd Qu.:15.267   3rd Qu.:175.22   3rd Qu.: 59.58   3rd Qu.:19.53  
+##  Max.   :21.177   Max.   :198.00   Max.   :117.40   Max.   :31.74  
+##                   NA&#39;s   :20       NA&#39;s   :4        NA&#39;s   :21     
+##        hc          gen        phb            tv           reg     
+##  Min.   :33.70   G1  : 56   P1  : 63   Min.   : 1.00   north: 81  
+##  1st Qu.:48.12   G2  : 50   P2  : 40   1st Qu.: 4.00   east :161  
+##  Median :53.00   G3  : 22   P3  : 19   Median :12.00   west :239  
+##  Mean   :51.51   G4  : 42   P4  : 32   Mean   :11.89   south:191  
+##  3rd Qu.:56.00   G5  : 75   P5  : 50   3rd Qu.:20.00   city : 73  
+##  Max.   :65.00   NA&#39;s:503   P6  : 41   Max.   :25.00   NA&#39;s :  3  
+##  NA&#39;s   :46                 NA&#39;s:503   NA&#39;s   :522</code></pre>
+<pre class="r"><code>sd(boys$age) #standard deviation for age</code></pre>
+<pre><code>## [1] 6.894052</code></pre>
+<pre class="r"><code>sd(boys$bmi, na.rm = TRUE) #standard deviation for bmi</code></pre>
+<pre><code>## [1] 3.053421</code></pre>
+<p>Note that <code>bmi</code> contains 21 missing values, e.g. by
+looking at the summary information. Therefor we need to use
+<code>na.rm = T</code> to calculate the standard deviation on the
+observed cases only.</p>
+</div>
 <hr />
-<ol start="13" style="list-style-type: decimal">
-<li><strong>It seems that the <code>boys</code> data are sorted based on
-<code>age</code>. Verify this.</strong></li>
-</ol>
-<hr />
-<ol start="14" style="list-style-type: decimal">
-<li><strong>Inspect the <code>boys</code> dataset with
-<code>str()</code>. Use one or more functions to find distributional
-summary information (at least information about the minimum, the
-maximum, the mean and the median) for all of the variables. Give the
-standard deviation for <code>age</code> and <code>bmi</code>. </strong>
-Tip: make use of the help (?) and help search (??) functionality in
-<code>R</code>.</li>
-</ol>
-<hr />
-<ol start="15" style="list-style-type: decimal">
-<li><strong>Select all boys that are 20 years or older. How many are
-there?</strong></li>
-</ol>
-<hr />
-<p>End of practical</p>
+</div>
+<div id="exercise-4.6" class="section level3">
+<h3>Exercise 4.6</h3>
+<p>Select all boys that are 20 years or older. How many are there?</p>
+<div class="webex-solution">
+<button>
+Answer
+</button>
+<p>The logical operators (TRUE vs FALSE) are a very powerful tool in
+<code>R</code>. For example, we can just select the rows (respondents)
+in the data that are older than 20 by putting the logical operator
+within the row index of the dataset:</p>
+<pre class="r"><code>boys2 &lt;- boys[boys$age &gt;= 20, ]
+nrow(boys2)</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>or, alternatively,</p>
+<pre class="r"><code>boys2.1 &lt;- subset(boys, age &gt;= 20)
+nrow(boys2.1)</code></pre>
+<pre><code>## [1] 12</code></pre>
+</div>
+</div>
 </div>
 
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 
 
