@@ -11,7 +11,7 @@
 
 
 
-<title>Report for the BOP of Maintenance and Repairs</title>
+<title>Report for the income data</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -354,69 +354,35 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Report for the BOP of Maintenance and
-Repairs</h1>
+<h1 class="title toc-ignore">Report for the income data</h1>
 
 </div>
 
 
 <pre class="r"><code>library(tidyverse)
-library(openxlsx)
-mar_credit &lt;- read.xlsx(&quot;some_data.xlsx&quot;,
-                        sheet = &quot;Credit&quot;,
-                        rows = 3:284)
 
-mar_debit &lt;- read.xlsx(&quot;some_data.xlsx&quot;,
-                        sheet = &quot;Debit&quot;,
-                        rows = 3:284)
-
-eu_groups &lt;- read.xlsx(&quot;some_data.xlsx&quot;,
-                        sheet = &quot;groups&quot;)
-
-mar_debit_long &lt;- mar_debit |&gt; 
-  select(-Description) |&gt; 
-  pivot_longer(cols = matches(&quot;\\d{4}&quot;),
-               names_to = &quot;year&quot;,
-               values_to = &quot;debit&quot;)
-
-mar_credit_long &lt;- mar_credit |&gt; 
-  select(-Description) |&gt; 
-  pivot_longer(cols = matches(&quot;\\d{4}&quot;),
-               names_to = &quot;year&quot;,
-               values_to = &quot;credit&quot;)
-
-mar_long &lt;- mar_credit_long |&gt; 
-  full_join(mar_debit_long,
-            by = c(&quot;Code&quot;, &quot;year&quot;)) |&gt; 
-  mutate(balance = credit-debit) |&gt; 
-  mutate(year = as.numeric(year))
-
-group_long &lt;- mar_long |&gt; 
-  left_join(eu_groups,
-            by = c(&quot;Code&quot; = &quot;code&quot;)) |&gt; 
-  filter(!is.na(Code)) |&gt; 
-  group_by(group, year) |&gt; 
-  summarise(debit = sum(debit),
-            credit = sum(credit),
-            balance = sum(balance)) |&gt; 
-  ungroup() |&gt; 
-  rename(Code = group) </code></pre>
+income &lt;- read.table(&quot;income.data&quot;, 
+                               sep = &#39;,&#39;, 
+                               fill = F, 
+                               strip.white = T) |&gt; 
+  as_tibble()</code></pre>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>This is R Markdown document is part of the last exercise in the
 course <em>Statistical programming with R</em>.<br />
-The code chunk above has generated some datasets that you should be
+The code chunk above has generated a datasets that you should be
 familiar with. Below you can see the first 6 rows of the dataset
-<code>group_long</code>:</p>
-<pre><code>## # A tibble: 6 × 5
-##   Code   year debit  credit balance
-##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 B6     2015  6.24 0.772     -5.47
-## 2 B6     2016  6.54 1.80      -4.74
-## 3 B6     2017  7.33 0.260     -7.07
-## 4 B6     2018  9.09 0.00641   -9.08
-## 5 B6     2019  7.37 0.0238    -7.34
-## 6 B6     2020  5.93 1.26      -4.67</code></pre>
+<code>income</code>:</p>
+<pre><code>## # A tibble: 6 × 15
+##      V1 V2        V3 V4       V5 V6    V7    V8    V9    V10     V11   V12   V13
+##   &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1    39 Stat…  77516 Bach…    13 Neve… Adm-… Not-… White Male   2174     0    40
+## 2    50 Self…  83311 Bach…    13 Marr… Exec… Husb… White Male      0     0    13
+## 3    38 Priv… 215646 HS-g…     9 Divo… Hand… Not-… White Male      0     0    40
+## 4    53 Priv… 234721 11th      7 Marr… Hand… Husb… Black Male      0     0    40
+## 5    28 Priv… 338409 Bach…    13 Marr… Prof… Wife  Black Fema…     0     0    40
+## 6    37 Priv… 284582 Mast…    14 Marr… Exec… Wife  White Fema…     0     0    40
+## # ℹ 2 more variables: V14 &lt;chr&gt;, V15 &lt;chr&gt;</code></pre>
 </div>
 
 
