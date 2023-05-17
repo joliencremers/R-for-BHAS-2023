@@ -140,9 +140,9 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [Practical C - With walkthrough](Contents/Material/Part C - Reading external data/Practical_C_walkthrough.html){target="_blank"}
 
 - Part D: Data manipulation and tidyverse
-    - [Lecture D](Contents/Material/Part D - Data manipulation/Lecture D.html){target="_blank"}
-    - [Practical D1](Contents/Material/Part D - Data manipulation/Practical D1.html){target="_blank"}
-    - [Practical D2](Contents/Material/Part D - Data manipulation/Practical D2.html){target="_blank"}
+    - [Lecture D](Contents/Material/Part D - Data manipulation/Lecture_D.html){target="_blank"}
+    - [Practical D1](Contents/Material/Part D - Data manipulation/Practical_D1.html){target="_blank"}
+    - [Practical D2](Contents/Material/Part D - Data manipulation/Practical_D2.html){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
@@ -154,13 +154,13 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
 
 - Part E: Strings and dates
-    - [Lecture E](Contents/Material/Part E - Strings and dates/Lecture_F.html){target="_blank"}
-    - [Practical E1](Contents/Material/Part E - Strings and dates/Practical_F1.html){target="_blank"}
-    - [Practical E2](Contents/Material/Part E - Strings and dates/Practical_F2.html){target="_blank"}
+    - [Lecture E](Contents/Material/Part E - Strings and dates/Lecture_E.html){target="_blank"}
+    - [Practical E1](Contents/Material/Part E - Strings and dates/Practical_E1.html){target="_blank"}
+    - [Practical E2](Contents/Material/Part E - Strings and dates/Practical_E2.html){target="_blank"}
 
 - Part F: Summary stats
-    - [Lecture F](Contents/Material/Part F - Summary stats/Lecture_E.html){target="_blank"}
-    - [Practical F](Contents/Material/Part F - Summary stats/Practical_E.html){target="_blank"}
+    - [Lecture F](Contents/Material/Part F - Summary stats/Lecture_F.html){target="_blank"}
+    - [Practical F](Contents/Material/Part F - Summary stats/Practical_F.html){target="_blank"}
     - [income.data](Contents/Material/Part F - Summary stats/data/income.data){target="_blank"}
     - [eu_debt.xlsx](Contents/Material/Part F - Summary stats/data/eu_debt.xlsx){target="_blank"}
 
