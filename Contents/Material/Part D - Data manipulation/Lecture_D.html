@@ -3515,31 +3515,6 @@ new_data &lt;- mutate(new_data, arr_delay = if_else(arr_delay &gt; 0, &quot;YES&
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Selecting rows</h2></hgroup><article  id="selecting-rows-2" class="smaller ">
-
-<p>Helper functions for <code>filter</code></p>
-
-<ul>
-<li><code>if_all()</code> and <code>if_any()</code></li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>flights |&gt; 
-  filter(if_all(contains(&quot;delay&quot;), ~.x &gt; 0))</pre>
-
-<pre >## # A tibble: 92,303 × 19
-##    year month   day dep_time sched_dep_time dep_delay
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
-## 1  2013     1     1      517            515         2
-## 2  2013     1     1      533            529         4
-## 3  2013     1     1      542            540         2
-## 4  2013     1     1      608            600         8
-## # ℹ 92,299 more rows
-## # ℹ 13 more variables: arr_time &lt;int&gt;,
-## #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
-## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
-## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</pre>
-
 </article></slide><slide class=""><hgroup><h2>Creating new variables</h2></hgroup><article  id="creating-new-variables" class="smaller ">
 
 <p><strong>mutate</strong></p>

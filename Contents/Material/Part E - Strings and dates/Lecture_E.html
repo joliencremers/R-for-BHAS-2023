@@ -3502,7 +3502,7 @@ treatment</pre>
 
 </article></slide><slide class=""><hgroup><h2>stringr</h2></hgroup><article  id="stringr" class="smaller ">
 
-<p>The <code>stringr</code> package gives os tools for working with text strings.</p>
+<p>The <code>stringr</code> package gives us tools for working with text strings.</p>
 
 <ul>
 <li>More consistent and streamlined than base R</li>
@@ -3511,7 +3511,7 @@ treatment</pre>
 
 </article></slide><slide class=""><hgroup><h2>Combining strings</h2></hgroup><article  id="combining-strings" class="smaller ">
 
-<p><code>str_c</code> or <code>paste</code> and <code>paste0</code> fra base R</p>
+<p><code>str_c</code> or <code>paste</code> and <code>paste0</code> from base R</p>
 
 <pre class = 'prettyprint lang-r'>starwars |&gt; 
   mutate(weight_w_text = str_c(name, &quot; weighs &quot;, mass, &quot; kg&quot;), 
@@ -3677,7 +3677,7 @@ treatment</pre>
 
 <pre class = 'prettyprint lang-r'>today()</pre>
 
-<pre >## [1] &quot;2023-05-16&quot;</pre>
+<pre >## [1] &quot;2023-05-21&quot;</pre>
 
 <pre class = 'prettyprint lang-r'>make_date(1960, 04, 01)</pre>
 
@@ -3695,7 +3695,7 @@ treatment</pre>
 
 <pre class = 'prettyprint lang-r'>now()</pre>
 
-<pre >## [1] &quot;2023-05-16 08:47:35 CEST&quot;</pre>
+<pre >## [1] &quot;2023-05-21 19:10:05 CEST&quot;</pre>
 
 <pre class = 'prettyprint lang-r'>make_datetime(1870, 4, 25, 23, 59, 03)</pre>
 
@@ -3713,11 +3713,11 @@ treatment</pre>
 
 </article></slide><slide class=""><hgroup><h2>Time intervals</h2></hgroup><article  id="time-intervals" class="smaller ">
 
-<p>The difference between to dates/datetimes is a `difftime</p>
+<p>The difference between two dates/datetimes is a `difftime</p>
 
 <pre class = 'prettyprint lang-r'>today() - dmy(&quot;11 July 1975&quot;)</pre>
 
-<pre >## Time difference of 17476 days</pre>
+<pre >## Time difference of 17481 days</pre>
 
 <p>lubridate introduces the type <code>duration</code> (which always is seconds in the underlying data)</p>
 

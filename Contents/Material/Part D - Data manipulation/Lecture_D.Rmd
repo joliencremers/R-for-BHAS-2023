@@ -182,18 +182,6 @@ flights |>
   filter(distance > 1000 & month == 12)
 ```
 
-## Selecting rows
-
-Helper functions for `filter`  
-
-- `if_all()` and `if_any()` 
-
-```{r}
-flights |> 
-  filter(if_all(contains("delay"), ~.x > 0))
-```
-
-
 ## Creating new variables
 
 **mutate**

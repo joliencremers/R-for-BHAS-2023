@@ -211,7 +211,7 @@ treatment %>%
 
 ## stringr
 
-The `stringr` package gives os tools for working with text strings. 
+The `stringr` package gives us tools for working with text strings. 
 
 - More consistent and streamlined than base R 
 - Works better with pipes
@@ -219,7 +219,7 @@ The `stringr` package gives os tools for working with text strings.
 
 ## Combining strings
 
-`str_c` or `paste` and `paste0` fra base R
+`str_c` or `paste` and `paste0` from base R
 
 ```{r}
 
@@ -340,7 +340,7 @@ ymd_hm("2017-10-31 20:11") - ymd_hm("2017-10-31 20:11", tz="CET")
 ```
 
 ##  Time intervals
-The difference between to dates/datetimes is a `difftime
+The difference between two dates/datetimes is a `difftime
 ```{r}
 today() - dmy("11 July 1975")
 ```
