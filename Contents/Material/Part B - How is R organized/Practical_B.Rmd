@@ -17,13 +17,13 @@ In this practical we are going to play around with the different types of elemen
 
 Make two vectors: one named `vec1` with values 1 through 6 and one named `vec2` with letters A through F.
  
- `r hide("Hint")`
+`r hide("Hint")`
 
 To create a vector we used `c()`, which stands for 'concatenation'.
 
 `r unhide()`
  
- `r hide("Answer")`
+`r hide("Answer")`
  
 ```{r}
 vec1 <- c(1, 2, 3, 4, 5, 6)

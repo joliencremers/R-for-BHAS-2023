@@ -1,5 +1,5 @@
 ---
-title: "Statistical Programming with R"
+title: "Statistical Programming and Data Manupulation with R"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -8,7 +8,7 @@ output:
 
 # Intro {.sidebar}
 
-This dashboard covers the materials for the course introducing R. Course held in Sarajevo, May 23 - May 26, 2023.
+This dashboard covers the materials for the course Statistical Programming and Data Manupulation with R held in Sarajevo, May 23 - May 26, 2023.
 
 ---
 
@@ -89,7 +89,7 @@ Execute the following lines of code in the console window:
 ```{r eval=FALSE, echo = TRUE}
 install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
                    "DBI", "devtools", "mice", "MASS", "sf", "lubridate", "openxlsx",
-                   "RSQLite", "printr", "nycflights13", "readxl", "ggplot2", 
+                   "printr", "nycflights13", "readxl", "ggplot2", 
                    "kableExtra", "knitr"), 
                  dependencies = TRUE)
 ```
@@ -126,7 +126,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
     - [boys.RData](Contents/Material/Part B - How is R organized/boys.RData){target="_blank"}
 
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
 
 # Wednesday
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
@@ -136,14 +136,13 @@ Lecture presentation and exercises will be made available here. Download the fil
 - Part C: Packages and reading external data
     - [Lecture C](Contents/Material/Part C - Reading external data/Lecture_C.html){target="_blank"}
     - [Practical C](Contents/Material/Part C - Reading external data/Practical_C.html){target="_blank"}
-    - [Practical C - With walkthrough](Contents/Material/Part C - Reading external data/Practical_C_walkthrough.html){target="_blank"}
 
 - Part D: Data manipulation and tidyverse
     - [Lecture D](Contents/Material/Part D - Data manipulation/Lecture_D.html){target="_blank"}
     - [Practical D1](Contents/Material/Part D - Data manipulation/Practical_D1.html){target="_blank"}
     - [Practical D2](Contents/Material/Part D - Data manipulation/Practical_D2.html){target="_blank"}
 
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
 
 
 # Thursday
@@ -164,7 +163,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [eu_debt.xlsx](Contents/Material/Part F - Summary stats/data/eu_debt.xlsx){target="_blank"}
 
 
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
 
 # Friday
 
@@ -177,7 +176,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [Practical G](Contents/Material/Part G - Plots and reports/Practical_G.html){target="_blank"}
     - [example.Rmd](Contents/Material/Part G - Plots and reports/example.Rmd){target="_blank"}
 
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
 
 # Further studies
 
