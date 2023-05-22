@@ -326,7 +326,7 @@ f$vector
 ```
 
 ## Lists in lists
-- A construct more useful that it initially seems is a *list of lists*
+- A construct more useful than it initially seems is a *list of lists*
 - Here we have a list with two identical elements:
 ```{r}
 g <- list(f, f)
@@ -419,7 +419,7 @@ fruits
 
 ## Then why use factors?
 
-- The factor is a data structure which is used for fields that take only predefined finite number of values. 
+- The factor is a data structure which is used for fields that take only a predefined finite number of values. 
 
 - These are the data objects which are used to categorise the data and to store it on multiple levels. 
 

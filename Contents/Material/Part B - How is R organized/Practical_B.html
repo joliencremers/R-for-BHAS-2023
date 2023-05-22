@@ -611,7 +611,7 @@ dat3</code></pre>
 <code>vec1</code> and <code>vec2</code> are both columns. Name the
 columns <code>V1</code> and <code>V2</code>, respectively. Use function
 <code>as.data.frame()</code> on the matrix obtained from
-<code>Question 4</code>.</p>
+<code>Question 2.4</code>.</p>
 <div class="webex-solution">
 <button>
 Answer
@@ -636,8 +636,8 @@ not to be the case.</p>
 </div>
 <div id="exercise-3.3" class="section level3">
 <h3>Exercise 3.3</h3>
-<p>Check if the first column in the data frames from Question 5 and
-Question 6 are indeed numeric. If not, determine what they are.</p>
+<p>Check if the first column in the data frames from Question 3.1 and
+Question 3.2 are indeed numeric. If not, determine what they are.</p>
 <div class="webex-solution">
 <button>
 Answer
@@ -647,25 +647,16 @@ Answer
 <pre class="r"><code>is.numeric(dat3b[, 1])</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>The first column in matrix <code>dat3b</code> obtained from Question
-5 is indeed not numeric. As a matter of fact, it is also not a character
-variable.</p>
+3.2 is indeed not numeric but character.</p>
 <pre class="r"><code>is.character(dat3b[, 1])</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<p>Rather tricky; the function <code>as.data.frame()</code> has
-converted the first variable to a factor.</p>
-<pre class="r"><code>is.factor(dat3b[, 1])</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<p>This is due to us not specifying the variable correctly in the matrix
-we used to create the dataframe. Factors are categorical variables that
-are depicted by numbers. Character vectors are converted to factors in
-data frames.</p>
 </div>
 </div>
 <div id="exercise-3.4" class="section level3">
 <h3>Exercise 3.4</h3>
 <p>Select 1) the third row, 2) the second column and 3) the intersection
 of these two in the dataframe <code>dat3</code> that you have created in
-Question 4.</p>
+Question 3.1.</p>
 <div class="webex-solution">
 <button>
 Answer
@@ -894,7 +885,7 @@ Answer
 <pre class="r"><code>sd(boys$bmi, na.rm = TRUE) #standard deviation for bmi</code></pre>
 <pre><code>## [1] 3.053421</code></pre>
 <p>Note that <code>bmi</code> contains 21 missing values, e.g. by
-looking at the summary information. Therefor we need to use
+looking at the summary information. Therefore we need to use
 <code>na.rm = T</code> to calculate the standard deviation on the
 observed cases only.</p>
 </div>

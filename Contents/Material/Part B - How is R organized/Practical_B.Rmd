@@ -118,7 +118,7 @@ dat3
 
 ### Exercise 3.2
 
-Again, make a dataframe called `dat3b` where `vec1` and `vec2` are both columns. Name the columns `V1` and `V2`, respectively. Use function `as.data.frame()` on the matrix obtained from `Question 4`.
+Again, make a dataframe called `dat3b` where `vec1` and `vec2` are both columns. Name the columns `V1` and `V2`, respectively. Use function `as.data.frame()` on the matrix obtained from `Question 2.4`.
 
 `r hide("Answer")`
 
@@ -133,27 +133,22 @@ does not work properly (at least not as intended) as the matrix nature of `mat3`
 
 ### Exercise 3.3 
 
-Check if the first column in the data frames from Question 5 and Question 6 are indeed numeric. If not, determine what they are.
+Check if the first column in the data frames from Question 3.1 and Question 3.2 are indeed numeric. If not, determine what they are.
 
 `r hide("Answer")`
 ```{r}
 is.numeric(dat3[, 1])
 is.numeric(dat3b[, 1])
 ```
-The first column in matrix `dat3b` obtained from Question 5 is indeed not numeric. As a matter of fact, it is also not a character variable.
+The first column in matrix `dat3b` obtained from Question 3.2 is indeed not numeric but character. 
 ```{r}
 is.character(dat3b[, 1])
 ```
-Rather tricky; the function `as.data.frame()` has converted the first variable to a factor. 
-```{r}
-is.factor(dat3b[, 1])
-```
-This is due to us not specifying the variable correctly in the matrix we used to create the dataframe. Factors are categorical variables that are depicted by numbers. Character vectors are converted to factors in data frames. 
 
 `r unhide()`
 
 ### Exercise 3.4 
-Select 1) the third row, 2) the second column and 3) the intersection of these two in the dataframe `dat3` that you have created in Question 4.
+Select 1) the third row, 2) the second column and 3) the intersection of these two in the dataframe `dat3` that you have created in Question 3.1.
 
 `r hide("Answer")`
 ```{r}
@@ -277,7 +272,7 @@ sd(boys$age) #standard deviation for age
 sd(boys$bmi, na.rm = TRUE) #standard deviation for bmi
 ```
 
-Note that `bmi` contains 21 missing values, e.g. by looking at the summary information. Therefor we need to use `na.rm = T` to calculate the standard deviation on the observed cases only.
+Note that `bmi` contains 21 missing values, e.g. by looking at the summary information. Therefore we need to use `na.rm = T` to calculate the standard deviation on the observed cases only.
 `r unhide()`
 
 ---
