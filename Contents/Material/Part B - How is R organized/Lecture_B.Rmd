@@ -468,7 +468,7 @@ Here we can see there are 3 arguments:
 
   * `x`: An `R` object
   * `trim = 0`: Number that removes a fraction before the mean is calculated
-  * `na.rm = FALSE`: Wether to remove `NA` from `x`.
+  * `na.rm = FALSE`: Whether to remove `NA` from `x`.
   * `...`: Placeholder for future arguments. Do not worry about this one.
 
 So what about our example from before?
@@ -522,7 +522,7 @@ Of course the mean of a set of number including at least in NA is also impossibl
 ```{r}
 mean(c(1, 2, NA, 4, 5))
 ```
-Often there is a argument called `na.rm`:
+Often there is an argument called `na.rm`:
 ```{r}
 mean(c(1, 2, NA, 4, 5), na.rm = TRUE)
 ```

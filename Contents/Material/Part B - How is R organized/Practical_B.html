@@ -530,7 +530,9 @@ Answer
 ## [2,] &quot;B&quot;  &quot;E&quot; 
 ## [3,] &quot;C&quot;  &quot;F&quot;</code></pre>
 <p><code>vec1</code> and <code>mat1</code> contain numbers and
-<code>vec2</code> and <code>mat2</code> contain characters.</p>
+<code>vec2</code> and <code>mat2</code> contain characters. Note that
+you can also use the <code>typeof</code> function to obtain the type of
+an object.</p>
 </div>
 </div>
 <div id="exercise-2.4" class="section level3">
@@ -610,8 +612,8 @@ dat3</code></pre>
 <p>Again, make a dataframe called <code>dat3b</code> where
 <code>vec1</code> and <code>vec2</code> are both columns. Name the
 columns <code>V1</code> and <code>V2</code>, respectively. Use function
-<code>as.data.frame()</code> on the matrix obtained from
-<code>Question 2.4</code>.</p>
+<code>as.data.frame()</code> on the matrix obtained from Question
+2.4.</p>
 <div class="webex-solution">
 <button>
 Answer
@@ -650,6 +652,12 @@ Answer
 3.2 is indeed not numeric but character.</p>
 <pre class="r"><code>is.character(dat3b[, 1])</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<p>Note that in earlier versions of R, the function
+<code>as.data.frame</code> that we used to create <code>dat3b</code>
+automatically converts all character type data to factors. In that case
+the first column in the dataframe <code>dat3b</code> will be neither
+<code>numeric</code> nor <code>character</code> but instead will be
+<code>factor</code>.</p>
 </div>
 </div>
 <div id="exercise-3.4" class="section level3">

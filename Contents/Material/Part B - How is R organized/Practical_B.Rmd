@@ -66,7 +66,7 @@ mat1
 mat2
 ```
 
-`vec1` and `mat1` contain numbers and `vec2` and `mat2` contain characters. 
+`vec1` and `mat1` contain numbers and `vec2` and `mat2` contain characters. Note that you can also use the `typeof` function to obtain the type of an object.
 
 `r unhide()`
 
@@ -118,7 +118,7 @@ dat3
 
 ### Exercise 3.2
 
-Again, make a dataframe called `dat3b` where `vec1` and `vec2` are both columns. Name the columns `V1` and `V2`, respectively. Use function `as.data.frame()` on the matrix obtained from `Question 2.4`.
+Again, make a dataframe called `dat3b` where `vec1` and `vec2` are both columns. Name the columns `V1` and `V2`, respectively. Use function `as.data.frame()` on the matrix obtained from Question 2.4.
 
 `r hide("Answer")`
 
@@ -144,6 +144,8 @@ The first column in matrix `dat3b` obtained from Question 3.2 is indeed not nume
 ```{r}
 is.character(dat3b[, 1])
 ```
+
+Note that in earlier versions of R, the function `as.data.frame` that we used to create `dat3b` automatically converts all character type data to factors. In that case the first column in the dataframe `dat3b` will be neither `numeric` nor `character` but instead will be `factor`.
 
 `r unhide()`
 
