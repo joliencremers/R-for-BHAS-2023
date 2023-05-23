@@ -486,7 +486,7 @@ Answer
 package is fetched from and the path it is installed to. If the package
 depended on other packages they would also be shown here. If the package
 is already installed and up-to-date it will not be installed again, but
-a short information will be shown here.</p>
+a short piece of information will be shown here.</p>
 </div>
 </div>
 <div id="exercise-2.2" class="section level3">
@@ -613,18 +613,16 @@ sources.</p>
 <h2>4. Databases</h2>
 <div id="exercise-4.1" class="section level3">
 <h3>Exercise 4.1</h3>
-<p>Open a connection to a SQLite database on the shared drive and give
+<p>Open a connection to a SQLite database on a (shared) drive and give
 it a unique name. Warning: Be sure not to overwrite each others
 databases. Give it a name that makes it clear it is yours.</p>
 <div class="webex-solution">
 <button>
 Answer
 </button>
-<p>First you should find the path to the shared drive, we will determine
-this name together before we start the exercises. This might not be
-possible if you are working on your laptops. So work together with your
-colleagues who got a desktop. For this example we will assume the path
-is <code>&quot;H:/&quot;</code></p>
+<p>First you should find the path to the (shared) drive, we will
+determine this name together before we start the exercises. For this
+example we will assume the path is <code>&quot;H:/&quot;</code></p>
 <p>Once you have the path you need a unique name for your database.
 Could for instance be your name and two numbers:
 <code>&quot;peter23.sqlite&quot;</code>.</p>
@@ -701,6 +699,14 @@ Answer
 </button>
 <pre class="r"><code>dbDisconnect(con)</code></pre>
 </div>
+<hr />
+<p><strong>Note:</strong></p>
+<p><strong>The following exercises work best if you created the database
+on a shared drive. If not, skip Exercise 4.5 and in Exercise 4.6, create
+a new table (like in Exercise 3.1 but with new values) and append this
+to the table you just saved to the database in Exercise
+4.2.</strong></p>
+<hr />
 </div>
 <div id="exercise-4.5" class="section level3">
 <h3>Exercise 4.5</h3>
@@ -722,18 +728,18 @@ dbListTables(con2)</code></pre>
 </div>
 <div id="exercise-4.6" class="section level3">
 <h3>Exercise 4.6</h3>
-<p>Append your own dataset to the other groups table. Appending is when
-you add your data the existing data. Read the help-file for
-<code>dbWriteTable</code> to see how it is done. Close the connection
-when you are done.</p>
+<p>Append your own dataset to the other groups table (your own if you&#39;re
+not working on a shared drive). Appending is when you add your data the
+existing data. Read the help-file for <code>dbWriteTable</code> to see
+how it is done. Close the connection when you are done.</p>
 <div class="webex-solution">
 <button>
 Answer
 </button>
-<p>The first thing you have to do is make your dataset look like theirs.
-They may have used different names for their columns, so start by
-reading their table and inspecting it using the tablename you found in
-exercise 11.</p>
+<p>The first thing you have to do is make your (new) dataset look like
+theirs (your old one). They may have used different names for their
+columns, so start by reading their table and inspecting it using the
+tablename you found in Exercise 4.5.</p>
 <pre class="r"><code>their_data &lt;- dbReadTable(con2, &quot;their_table_name&quot;)
 View(their_data)</code></pre>
 <p>Now rename your dataframe so it matches theirs. This can be done
@@ -756,15 +762,24 @@ you see the new data that has been added?</p>
 <button>
 Answer
 </button>
-<p>Use the same code you made in exercise 7 and 9. If the other group
-successfully appended their dataset, you should see more rows than you
-did earlier.</p>
+<p>Use the same code you made in Exercise 4.1 and 4.3. If the other
+group successfully appended their dataset, you should see more rows than
+you did earlier.</p>
 </div>
 </div>
 <div id="exercise-4.8" class="section level3">
 <h3>Exercise 4.8</h3>
 <p>If you have more time, try making an SQL-query to select only the
-data where shoe size is greater than 40</p>
+data where shoe size is greater than 40.</p>
+</div>
+</div>
+<div id="reading-your-own-data" class="section level2">
+<h2>Reading your own data</h2>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
+<p>Try to read some of your own data that you have worked with or are
+currently working with (for example an Excel file) into R. Check if the
+data is read correctly (check datatypes, missing values, etc.)</p>
 </div>
 </div>
 

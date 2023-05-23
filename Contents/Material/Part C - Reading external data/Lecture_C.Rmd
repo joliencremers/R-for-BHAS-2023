@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     logo: figures/logo_en.png
     smaller: yes
-    widescreen: yes
+    widescreen: no
     self_contained: true
 ---
 
@@ -15,10 +15,9 @@ output:
 In this lecture we will look at:  
 
 * Packages
-* Reading CSV, SAS and Excel-files
+* Reading CSV, STATA and Excel-files
 * Writing CSV and Excel
 * Reading and writing to a database
-* Creating functions
 
 # Packages
 ## Packages
@@ -62,7 +61,7 @@ boys[1:5,]
  - More than 19470 packages. Generally of high quality.
  - Automatically installed dependencies if needed
 
-```{r message = T}
+```{r eval = FALSE}
 install.packages("mice")
 ```
 
@@ -220,7 +219,7 @@ boys_csv <- readr::read_csv2("boys.csv")
 # Excel
 boys_xlsx <- openxlsx::read.xlsx("boys.xlsx")
 
-# SAS
+# STATA
 boys_dta <- haven::read_dta("boys.dta")
 ```
 - Notice that we use `read_csv2` and not `read_csv`.

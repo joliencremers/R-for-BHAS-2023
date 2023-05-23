@@ -31,7 +31,7 @@ install.packages("RSQLite")
 There is a lot of text in the output, including the website where the package is fetched from and
 the path it is installed to. If the package depended on other packages they would
 also be shown here. If the package is already installed and up-to-date it will
-not be installed again, but a short information will be shown here.
+not be installed again, but a short piece of information will be shown here.
 
 `r unhide()`
 
@@ -138,11 +138,11 @@ to check your data when reading from external sources.
 ## 4. Databases
 ### Exercise 4.1 
 
-Open a connection to a SQLite database on the shared drive and give it a unique name. Warning: Be sure not to overwrite each others databases. Give it a name that makes it clear it is yours.
+Open a connection to a SQLite database on a (shared) drive and give it a unique name. Warning: Be sure not to overwrite each others databases. Give it a name that makes it clear it is yours.
 
 `r hide("Answer")`
  
- First you should find the path to the shared drive, we will determine this name together before we start the exercises. This might not be possible if you are working on your laptops. So work together with your colleagues who got a desktop. For this example we will assume the path is `"H:/"`  
+ First you should find the path to the (shared) drive, we will determine this name together before we start the exercises. For this example we will assume the path is `"H:/"`  
 
 Once you have the path you need a unique name for your database. Could for instance be your name and two numbers: `"peter23.sqlite"`.  
 
@@ -233,6 +233,12 @@ dbDisconnect(con)
 
 `r unhide()`
 
+***
+**Note:**
+
+**The following exercises work best if you created the database on a shared drive. If not, skip Exercise 4.5 and in Exercise 4.6, create a new table (like in Exercise 3.1 but with new values) and append this to the table you just saved to the database in Exercise 4.2.**
+
+***
 
 ### Exercise 4.5 
 
@@ -256,12 +262,11 @@ c("their_table_name")
 
 ### Exercise 4.6
 
-Append your own dataset to the other groups table. Appending is when you add your data the existing data. Read the help-file for `dbWriteTable` to see how it is done. Close the connection when you are done.
+Append your own dataset to the other groups table (your own if you're not working on a shared drive). Appending is when you add your data the existing data. Read the help-file for `dbWriteTable` to see how it is done. Close the connection when you are done.
 
 `r hide("Answer")`
  
-The first thing you have to do is make your dataset look like theirs. They may have
-used different names for their columns, so start by reading their table and inspecting it using the tablename you found in exercise 11.
+The first thing you have to do is make your (new) dataset look like theirs (your old one). They may have used different names for their columns, so start by reading their table and inspecting it using the tablename you found in Exercise 4.5.
 ```{r eval = F}
 their_data <- dbReadTable(con2, "their_table_name")
 View(their_data)
@@ -295,7 +300,7 @@ Reopen the connection to your own database and read your table. Can you see the 
 
 `r hide("Answer")`
 
-Use the same code you made in exercise 7 and 9. If the other group successfully appended their dataset, you should see more rows than you did earlier.
+Use the same code you made in Exercise 4.1 and 4.3. If the other group successfully appended their dataset, you should see more rows than you did earlier.
 
 `r unhide()`
 
@@ -303,5 +308,9 @@ Use the same code you made in exercise 7 and 9. If the other group successfully 
 
 ### Exercise 4.8
 
-If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40
+If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40.
 
+## Reading your own data
+
+### Exercise 5
+Try to read some of your own data that you have worked with or are currently working with (for example an Excel file) into R. Check if the data is read correctly (check datatypes, missing values, etc.) 
