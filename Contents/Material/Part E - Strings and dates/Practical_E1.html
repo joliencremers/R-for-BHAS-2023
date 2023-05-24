@@ -417,8 +417,8 @@ pre code {
 </div>
 
 
-<div id="øvelse-1.1" class="section level3">
-<h3>Øvelse 1.1</h3>
+<div id="exercise-1.1" class="section level3">
+<h3>Exercise 1.1</h3>
 <p>Load the package <code>tidyr</code> (or go crazy and just install the
 whole tidyverse). Run the following piece of code which creates a data
 set called <code>persons</code>.</p>
@@ -531,7 +531,7 @@ respondents in each combination of income group and religion</p>
 <button>
 Answer
 </button>
-<pre class="r"><code>relig_income_long &lt;- relig_income %&gt;% 
+<pre class="r"><code>relig_income_long &lt;- relig_income |&gt; 
   pivot_longer(cols = -religion, names_to = &quot;income&quot;, values_to = &quot;respondents&quot;)</code></pre>
 </div>
 </div>

@@ -9,7 +9,7 @@ library(tidyverse)
 library(webexercises)
 ```
 
-### Øvelse 1.1
+### Exercise 1.1
 
 Load the package `tidyr` (or go crazy and just install the whole tidyverse). Run the following piece of code which creates a data set called `persons`.
 
@@ -90,7 +90,7 @@ The data set `relig_income` is built in to `tidyr`. The documentation can be see
 Transform the data set so that each row contains the number of respondents in each combination of income group and religion
 
 ```{r webex.hide="Answer"}
-relig_income_long <- relig_income %>% 
+relig_income_long <- relig_income |> 
   pivot_longer(cols = -religion, names_to = "income", values_to = "respondents")
 ```
 
