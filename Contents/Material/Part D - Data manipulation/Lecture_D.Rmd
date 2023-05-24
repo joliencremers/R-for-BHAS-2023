@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     logo: figures/logo_en.png
     smaller: yes
-    widescreen: yes
+    widescreen: no
     self_contained: true
 ---
 
