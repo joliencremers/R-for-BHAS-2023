@@ -162,6 +162,17 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [income.data](Contents/Material/Part F - Summary stats/data/income.data){target="_blank"}
     - [eu_debt.xlsx](Contents/Material/Part F - Summary stats/data/eu_debt.xlsx){target="_blank"}
 
+- Part H: Recap
+    - [Lecture H](){}
+    - [income.xlsx](Contents/Material/Part H - Recap/income.xlsx){target="_blank"}
+    - [boys_ID.xlsx](Contents/Material/Part H - Recap/boys_ID.xlsx){target="_blank"}
+    - [boys_ID_1.xlsx](Contents/Material/Part H - Recap/boys_ID_1.xlsx){target="_blank"}
+    - [boys_ID_2.xlsx](Contents/Material/Part H - Recap/boys_ID_2.xlsx){target="_blank"}
+    - [planes.xlsx](Contents/Material/Part H - Recap/planes.xlsx){target="_blank"}
+    - [airlines.xlsx](Contents/Material/Part H - Recap/airlines.xlsx){target="_blank"}
+    - [flights.xlsx](Contents/Material/Part H - Recap/flights.xlsx){target="_blank"}
+    
+
 
 All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
 
