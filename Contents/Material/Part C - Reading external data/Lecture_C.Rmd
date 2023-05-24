@@ -328,4 +328,34 @@ dbDisconnect(con)
 - A good place to start is [solutions.posit.co/connections/db/databases/](https://solutions.posit.co/connections/db/databases/)
 
 
+## Microsoft Access
+[https://stackoverflow.com/questions/45816062/connect-ms-access-database-to-r](https://stackoverflow.com/questions/45816062/connect-ms-access-database-to-r)
+
+```{r, eval = FALSE}
+
+# Load RODBC package
+library(RODBC) 
+
+# Connect to Access db
+# for 32-bit windows
+channel <- odbcConnectAccess("C:/your_path/Database1.accdb")
+
+# Get data
+data <- sqlQuery(channel , paste ("select * from Table1"))
+
+# for 64-bit windows
+#connect database.
+db<-file.path("C:/Users/Excel/Desktop/Coding/Microsoft Access/Split_and_Transpose.accdb") 
+
+#internal RODBC function
+channel<-odbcConnectAccess2007(db) 
+
+#read particular table from Access database file.
+dataSetName<-sqlFetch(channel,"Table1") 
+
+#do not forget this, otherwise you lock access database from editing.
+close(channel) 
+
+```
+
 # Practical

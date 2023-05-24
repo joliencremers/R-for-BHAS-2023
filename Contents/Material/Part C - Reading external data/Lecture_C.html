@@ -3675,6 +3675,33 @@ old_boys[1:5,]</pre>
 <li>A good place to start is <a href='https://solutions.posit.co/connections/db/databases/' title=''>solutions.posit.co/connections/db/databases/</a></li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Microsoft Access</h2></hgroup><article  id="microsoft-access" class="smaller ">
+
+<p><a href='https://stackoverflow.com/questions/45816062/connect-ms-access-database-to-r' title=''>https://stackoverflow.com/questions/45816062/connect-ms-access-database-to-r</a></p>
+
+<pre class = 'prettyprint lang-r'># Load RODBC package
+library(RODBC) 
+
+# Connect to Access db
+# for 32-bit windows
+channel &lt;- odbcConnectAccess(&quot;C:/your_path/Database1.accdb&quot;)
+
+# Get data
+data &lt;- sqlQuery(channel , paste (&quot;select * from Table1&quot;))
+
+# for 64-bit windows
+#connect database.
+db&lt;-file.path(&quot;C:/Users/Excel/Desktop/Coding/Microsoft Access/Split_and_Transpose.accdb&quot;) 
+
+#internal RODBC function
+channel&lt;-odbcConnectAccess2007(db) 
+
+#read particular table from Access database file.
+dataSetName&lt;-sqlFetch(channel,&quot;Table1&quot;) 
+
+#do not forget this, otherwise you lock access database from editing.
+close(channel) </pre>
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Practical</h2></hgroup><article  id="practical" class="smaller "></article></slide>
 
 
