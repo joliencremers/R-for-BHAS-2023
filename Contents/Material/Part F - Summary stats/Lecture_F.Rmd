@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     logo: figures/logo_en.png
     smaller: yes
-    widescreen: yes
+    widescreen: no
     self_contained: true
 ---
 
@@ -41,6 +41,9 @@ Learning Repository](https://archive.ics.uci.edu/ml/datasets/Adult)
 The government data is retrieved from eurostat: 
 [gov_10q_ggdebt data](https://ec.europa.eu/eurostat/databrowser/view/gov_10q_ggdebt/default/table?lang=en).
 
+- government consolidated gross debt for the general government sector in million units of the national currency.
+- for every quarter in 2013-2022
+
 
 ## Load data
 
@@ -48,9 +51,9 @@ The government data is retrieved from eurostat:
 ```{r}
 
 income <- read.table("data/income.data", 
-                               sep = ',', 
-                               fill = F, 
-                               strip.white = T) |> 
+                     sep = ',', 
+                     fill = F, 
+                     strip.white = T) |> 
   as_tibble()
 
 colnames(income) <- c('age', 'workclass', 'fnlwgt', 'education',
