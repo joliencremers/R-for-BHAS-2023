@@ -310,7 +310,7 @@ Use the same code you made in Exercise 4.1 and 4.3. If the other group successfu
 
 If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40.
 
-## Reading your own data
+## 5. Reading your own data
 
-### Exercise 5
+### Exercise 5.1
 Try to read some of your own data that you have worked with or are currently working with (for example an Excel file) into R. Check if the data is read correctly (check datatypes, missing values, etc.) 
