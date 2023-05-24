@@ -22,7 +22,7 @@ In this lecture we will look at:
 # Packages
 ## Packages
 
-- Until now we have worked with only the functionality in `base`:
+- Until now we have worked maily with the functionality in `base`:
   - All R-installations have it
   - Powerful, robust and basic 
 - But often we need more. That's where packages come in.
@@ -104,7 +104,7 @@ ls()
 </center>
 
 ## Use it
- Now we can call the functions and datasets in the package as other object we
+ Now we can call the functions and datasets in the package just like other objects we
  have created. For instance we now have access to the `boys`-dataset without loading
  the `boys.RData`:
 ```{r}
@@ -121,7 +121,7 @@ mice::boys[1:3,]
 - Can be overwhelming
 - Good places to start:
   - Tidyverse is a curated collection that shares design philosophy: [www.tidyverse.org/packages/](https://www.tidyverse.org/packages/)
-  - If you are into official statistics: [github.com/SNStatComp/awesome-official-statistics-software](https://github.com/SNStatComp/awesome-official-statistics-software)
+  - If you are into official statistics: [github.com/SNStatComp/awesome-official-statistics-software](https://github.com/SNStatComp/awesome-official-statistics-software) and [https://cran.r-project.org/web/views/OfficialStatistics.html](https://cran.r-project.org/web/views/OfficialStatistics.html)
 - Else Google is your friend, but do not take the first and best! 
   - Is it a popular package?
   - Check who the creator is and decide if you trust them
@@ -170,6 +170,7 @@ getwd()
 ```
 
 - R will first look for files in your Working Directory
+- In a project the working directly is automatically set to the folder the project is located in.
 
 ## Example
 - I have created a small textfile called "example.txt" and put it in the path "C:/Users/Jolien/example.txt"
@@ -187,7 +188,7 @@ file("C:/Users/Jolien/example.txt")
 ## Absolute vs. relative path
 As a rule of thumb:  
 
-- When the file is in your project folder you should use relative paths : 
+- When the file is in your project folder you should use relative paths: 
   - This makes your project portable and avoids unnecessary long paths.
 - If the file is a system file or on a shared drive you should use absolute paths.
 

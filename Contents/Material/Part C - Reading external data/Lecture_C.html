@@ -3235,7 +3235,7 @@ line-height: 1.9;
 </article></slide><slide class=""><hgroup><h2>Packages</h2></hgroup><article  id="packages-1" class="smaller ">
 
 <ul>
-<li>Until now we have worked with only the functionality in <code>base</code>:
+<li>Until now we have worked maily with the functionality in <code>base</code>:
 
 <ul>
 <li>All R-installations have it</li>
@@ -3353,7 +3353,7 @@ boys[1:3,]</pre>
 
 </article></slide><slide class=""><hgroup><h2>Use it</h2></hgroup><article  id="use-it" class="smaller ">
 
-<p>Now we can call the functions and datasets in the package as other object we have created. For instance we now have access to the <code>boys</code>-dataset without loading the <code>boys.RData</code>:</p>
+<p>Now we can call the functions and datasets in the package just like other objects we have created. For instance we now have access to the <code>boys</code>-dataset without loading the <code>boys.RData</code>:</p>
 
 <pre class = 'prettyprint lang-r'>boys[1:5,]</pre>
 
@@ -3383,7 +3383,7 @@ boys[1:3,]</pre>
 
 <ul>
 <li>Tidyverse is a curated collection that shares design philosophy: <a href='https://www.tidyverse.org/packages/' title=''>www.tidyverse.org/packages/</a></li>
-<li>If you are into official statistics: <a href='https://github.com/SNStatComp/awesome-official-statistics-software' title=''>github.com/SNStatComp/awesome-official-statistics-software</a></li>
+<li>If you are into official statistics: <a href='https://github.com/SNStatComp/awesome-official-statistics-software' title=''>github.com/SNStatComp/awesome-official-statistics-software</a> and <a href='https://cran.r-project.org/web/views/OfficialStatistics.html' title=''>https://cran.r-project.org/web/views/OfficialStatistics.html</a></li>
 </ul></li>
 <li>Else Google is your friend, but do not take the first and best!
 
@@ -3445,6 +3445,7 @@ library(RSQLite)</pre>
 
 <ul>
 <li>R will first look for files in your Working Directory</li>
+<li>In a project the working directly is automatically set to the folder the project is located in.</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Example</h2></hgroup><article  id="example" class="smaller ">
@@ -3472,7 +3473,7 @@ library(RSQLite)</pre>
 <p>As a rule of thumb:</p>
 
 <ul>
-<li>When the file is in your project folder you should use relative paths :
+<li>When the file is in your project folder you should use relative paths:
 
 <ul>
 <li>This makes your project portable and avoids unnecessary long paths.</li>
