@@ -172,6 +172,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [airlines.xlsx](Contents/Material/Part H - Recap/airlines.xlsx){target="_blank"}
     - [flights.xlsx](Contents/Material/Part H - Recap/flights.xlsx){target="_blank"}
     - [Lecture H](Contents/Material/Part H - Recap/summary.html){target="_blank"}
+    - [Example_income.R](Contents/Material/Part H - Recap/Example_income.R){target="_blank"}
 
 
 All lectures are in `html` format. Practicals are are provided with hints and answers - choose when to use these!
