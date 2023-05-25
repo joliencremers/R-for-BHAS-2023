@@ -51,6 +51,8 @@ income |>
 
 #### Data manipulation
 
+## filter
+
 # remove all under 26
 filter_age <- income |> 
   filter(age > 25)
@@ -75,4 +77,59 @@ filter_age_education |>
   count(education)
 
 summary(filter_age_education$age)
+
+## grouping and summarize
+
+# group by marital status and count amount of individuals per group
+unique(income$marital_status) # check the unique categories of marital status
+
+income |> 
+  group_by(marital_status) |>
+  summarise(amount = n())
+
+income |> 
+  count(marital_status)
+
+# group by marital status and compute some summary statistics
+table_marital <- income |> 
+  group_by(marital_status) |>
+  summarise(amount = n(),
+            amount_of_females = sum(sex == "Female"),
+            lowest_age = min(age),
+            mean_age = mean(age),
+            sd_age = sd(age))
+
+# write table to Excel
+write.xlsx(table_marital, "output/table_marital.xlsx")
+
+# with filter for age
+income |> 
+  filter(age > 25) |> 
+  group_by(marital_status) |>
+  summarise(amount = n(),
+            amount_of_females = sum(sex == "Female"),
+            lowest_age = min(age),
+            mean_age = mean(age),
+            sd_age = sd(age))
+
+
+# compute amount of males and females
+sum(income$sex == "Female") # compute the amount of females
+sum(income$sex != "Female") # compute the amount of males
+sum(income$sex == "Male") # compute the amount of males
+income |> 
+  count(sex)
+
+
+
+
+
+
+# So what does this do?
+data_new <- income |> 
+  group_by(marital_status, workclass) |>
+  summarise(amount = n(),
+            bachelors_proportion = round(mean(education == "Bachelors"), 2)) |> 
+  ungroup() |> 
+  rename(sector = workclass)
 
