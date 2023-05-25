@@ -120,12 +120,13 @@ sum(income$sex == "Male") # compute the amount of males
 income |> 
   count(sex)
 
-
-
-
-
-
 # So what does this do?
+# It groups the data by marital status and workclass
+# Then computes the amount of individuals in each group
+# Then computes the proportion of bachelors (rounded to 2 decimals) in each group
+# Ungroups the data
+# Renames the workclass variable to sector
+
 data_new <- income |> 
   group_by(marital_status, workclass) |>
   summarise(amount = n(),
