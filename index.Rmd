@@ -163,7 +163,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [eu_debt.xlsx](Contents/Material/Part F - Summary stats/data/eu_debt.xlsx){target="_blank"}
 
 - Part H: Recap
-    - [Lecture H](){}
+    - [Lecture H](Contents/Material/Part H - Recap/summary.html){target="_blank"}
     - [income.xlsx](Contents/Material/Part H - Recap/income.xlsx){target="_blank"}
     - [boys_ID.xlsx](Contents/Material/Part H - Recap/boys_ID.xlsx){target="_blank"}
     - [boys_ID_1.xlsx](Contents/Material/Part H - Recap/boys_ID_1.xlsx){target="_blank"}
