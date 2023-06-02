@@ -183,11 +183,6 @@ All lectures are in `html` format. Practicals are are provided with hints and an
 - Part H: Recap
     - [income.xlsx](Contents/Material/Part H - Recap/income.xlsx){target="_blank"}
     - [boys_ID.xlsx](Contents/Material/Part H - Recap/boys_ID.xlsx){target="_blank"}
-    - [boys_ID_1.xlsx](Contents/Material/Part H - Recap/boys_ID_1.xlsx){target="_blank"}
-    - [boys_ID_2.xlsx](Contents/Material/Part H - Recap/boys_ID_2.xlsx){target="_blank"}
-    - [planes.xlsx](Contents/Material/Part H - Recap/planes.xlsx){target="_blank"}
-    - [airlines.xlsx](Contents/Material/Part H - Recap/airlines.xlsx){target="_blank"}
-    - [flights.xlsx](Contents/Material/Part H - Recap/flights.xlsx){target="_blank"}
     - [Lecture H](Contents/Material/Part H - Recap/summary.html){target="_blank"}
     - [Example data manipulation](Contents/Material/Part H - Recap/Example_data_manipulation.zip){target="_blank"}
 
