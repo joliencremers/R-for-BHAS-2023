@@ -184,7 +184,7 @@ All lectures are in `html` format. Practicals are are provided with hints and an
     - [income.xlsx](Contents/Material/Part H - Recap/income.xlsx){target="_blank"}
     - [boys_ID.xlsx](Contents/Material/Part H - Recap/boys_ID.xlsx){target="_blank"}
     - [Lecture H](Contents/Material/Part H - Recap/summary.html){target="_blank"}
-    - [Example data manipulation](Contents/Material/Part H - Recap/Example_data_manipulation.zip){target="_blank"}
+    - [Example](Contents/Material/Part H - Recap/Example_project.zip){target="_blank"}
 
 
 # Further studies
